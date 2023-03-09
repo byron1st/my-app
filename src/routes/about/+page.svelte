@@ -1,2 +1,10 @@
-<div class="w-full">about page</div>
-<div class="w-full">about page</div>
+<script>
+	import Box from '$lib/component/Box.svelte';
+</script>
+
+<Box classNames="w-full">
+	<div class="w-full p-4">
+		<div>about page</div>
+		<div>about page</div>
+	</div>
+</Box>
