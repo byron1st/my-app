@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Header from '$lib/component/Header.svelte';
+	import Header from '$lib/component/Header/Header.svelte';
 	import '../app.css';
 </script>
 
@@ -8,7 +8,7 @@
 >
 	<Header />
 
-	<div class="h-full w-full lg:w-[64rem]">
+	<div class="h-full w-full px-4 lg:w-[64rem]">
 		<slot />
 	</div>
 </div>
