@@ -4,7 +4,7 @@
 </script>
 
 <div
-	class="flex h-full min-h-screen w-full flex-col items-center bg-white text-slate-800 dark:bg-slate-800 dark:text-slate-100"
+	class="flex h-full min-h-screen w-full flex-col items-center bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100"
 >
 	<Header />
 
