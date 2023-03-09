@@ -4,11 +4,11 @@
 </script>
 
 <div
-	class={'flex h-full min-h-screen w-full flex-col items-center bg-white text-slate-800 dark:bg-slate-800 dark:text-slate-100'}
+	class="flex h-full min-h-screen w-full flex-col items-center bg-white text-slate-800 dark:bg-slate-800 dark:text-slate-100"
 >
 	<Header />
 
-	<div class="h-full w-full flex-1 lg:w-[64rem]">
+	<div class="h-full w-full lg:w-[64rem]">
 		<slot />
 	</div>
 </div>
