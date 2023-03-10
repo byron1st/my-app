@@ -8,7 +8,7 @@
 >
 	<Header />
 
-	<div class="h-full w-full px-4 lg:w-[64rem]">
+	<main class="h-full w-full px-4 lg:w-[64rem]">
 		<slot />
-	</div>
+	</main>
 </div>

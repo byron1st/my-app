@@ -1,7 +1,6 @@
 <script>
 	import { slide } from 'svelte/transition';
 	import Bars3 from '$lib/icons/Bars3.svelte';
-	import MenuListItem from '$lib/component/Header/MenuListItem.svelte';
 	import XMark from '$lib/icons/XMark.svelte';
 	import FadeInIcon from './FadeInIcon.svelte';
 	import MenuList from './MenuList.svelte';
