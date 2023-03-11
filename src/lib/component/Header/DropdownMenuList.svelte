@@ -11,18 +11,18 @@
 <button on:click={() => (show = !show)}>
 	{#if show}
 		<FadeInIcon>
-			<XMark />
+			<XMark class="h-6 w-6" />
 		</FadeInIcon>
 	{:else}
 		<FadeInIcon>
-			<Bars3 />
+			<Bars3 class="h-6 w-6" />
 		</FadeInIcon>
 	{/if}
 </button>
 
 {#if show}
 	<div
-		class="absolute top-12 left-0 flex w-full flex-col gap-2 bg-white px-8 dark:bg-slate-800"
+		class="absolute top-12 left-0 flex w-full flex-col gap-2 bg-slate-50 px-8 dark:bg-slate-800"
 		transition:slide={{ duration: 200 }}
 	>
 		<MenuList bottomBorder />

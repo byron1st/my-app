@@ -11,8 +11,12 @@
 </script>
 
 <a class="flex w-fit flex-row items-center gap-1 text-sm hover:underline" {href}>
-	{#if isPersonal}<Home size="sm" />{:else}<BuildingOffice size="sm" />{/if}
+	{#if isPersonal}
+		<Home class="h-4 w-4" />
+	{:else}
+		<BuildingOffice class="h-4 w-4" />
+	{/if}
 	<div class="flex flex-row items-center">
-		{id}<AtSymbol size="xs" />{domain}
+		{id}<AtSymbol class="h-3 w-3" />{domain}
 	</div>
 </a>

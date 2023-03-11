@@ -1,16 +1,10 @@
-<script lang="ts">
-	import { getIconClasses, type IconSize } from '$lib/icons/util';
-
-	export let size: IconSize | undefined = undefined;
-</script>
-
 <svg
 	xmlns="http://www.w3.org/2000/svg"
 	fill="none"
 	viewBox="0 0 24 24"
 	stroke-width="1.5"
 	stroke="currentColor"
-	class={getIconClasses(size)}
+	class={$$props.class}
 >
 	<path
 		stroke-linecap="round"

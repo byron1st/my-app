@@ -9,13 +9,15 @@
 		from: Date;
 		to?: Date;
 		note?: string;
+		link?: string;
 	};
 
 	let educations: EducationType[] = [
 		{
 			degree: '박사',
 			school: 'KAIST, 전산학부, Software Architecture Lab',
-			from: new Date('2012-03-01')
+			from: new Date('2012-03-01'),
+			link: 'http://salab.kaist.ac.kr'
 		},
 		{
 			degree: '석사',
@@ -29,22 +31,24 @@
 			school: 'Carnegie Mellon University, MSIT-SE',
 			from: new Date('2010-09-01'),
 			to: new Date('2012-02-28'),
-			note: 'KAIST-CMU MSIT-SE 공동학위 프로그램'
+			note: 'KAIST-CMU MSIT-SE 공동학위 프로그램',
+			link: 'https://mse.s3d.cmu.edu/program-history/msit-se/index.html'
 		},
 		{
 			degree: '학사',
 			school: 'KAIST, 전산학과',
 			from: new Date('2005-02-01'),
-			to: new Date('2010-08-31')
+			to: new Date('2010-08-31'),
+			link: 'https://cs.kaist.ac.kr'
 		}
 	];
 </script>
 
 <div class="flex w-full flex-col">
 	<Section title="학력">
-		{#each educations as { degree, school, from, to, note }, index}
+		{#each educations as { degree, school, from, to, note, link }, index}
 			<SectionItem title={degree} isLast={index === educations.length - 1}>
-				<EducationItem text={school} {from} {to} subText={note} />
+				<EducationItem text={school} {from} {to} subText={note} {link} />
 			</SectionItem>
 		{/each}
 	</Section>
