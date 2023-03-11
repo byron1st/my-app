@@ -11,7 +11,7 @@
 <a
 	{href}
 	class={classnames('transition hover:underline', {
-		underline: $page.url.pathname === href
+		underline: $page.url.pathname.startsWith(href)
 	})}>{name}</a
 >
 {#if bottomBorder} <DropdownMenuItemDivider /> {/if}

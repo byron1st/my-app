@@ -28,7 +28,7 @@
 			<p class="text-xs">
 				{#each authors as author, index}
 					{#if author === 'Hwi Ahn' || author === '안휘'}
-						<span class="font-bold text-blue-800">{author}</span>
+						<span class="font-bold text-blue-600 dark:text-blue-300">{author}</span>
 					{:else}
 						{author}
 					{/if}
