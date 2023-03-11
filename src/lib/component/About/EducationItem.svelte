@@ -14,7 +14,7 @@
 	}`;
 </script>
 
-<div class="flex w-full flex-row items-center justify-between">
+<div class="flex w-full flex-col sm:flex-row sm:items-center sm:justify-between">
 	<div class="flex flex-col py-2">
 		<p>{text}</p>
 		<div class="flex flex-row items-center gap-1">
@@ -30,13 +30,15 @@
 	</div>
 
 	{#if link}
-		<a
-			class="rounded-full p-1 hover:bg-slate-200 dark:hover:border-slate-400"
-			href={link}
-			target="_blank"
-			rel="noopener noreferrer"
-		>
-			<Link class="h-6 w-6" />
-		</a>
+		<div class="flex flex-row justify-end">
+			<a
+				class="flex h-6 w-6 flex-row items-center justify-center rounded-full p-1 hover:bg-slate-200 dark:hover:border-slate-400"
+				href={link}
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				<Link class="h-4 w-4" />
+			</a>
+		</div>
 	{/if}
 </div>
