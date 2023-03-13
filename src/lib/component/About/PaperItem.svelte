@@ -1,8 +1,8 @@
 <script lang="ts">
-	import Link from '$lib/icons/Link.svelte';
 	import CalendarDays from '$lib/icons/CalendarDays.svelte';
 	import MapPin from '$lib/icons/MapPin.svelte';
 	import UserGroup from '$lib/icons/UserGroup.svelte';
+	import ArrowTopRightOnSquare from '$lib/icons/ArrowTopRightOnSquare.svelte';
 
 	export let title: string;
 	export let authors: string[];
@@ -21,7 +21,9 @@
 
 <div class="flex w-full flex-col sm:flex-row sm:items-center sm:justify-between">
 	<div class="flex flex-col py-2">
-		<p>{title}</p>
+		<a class="flex flex-row items-baseline gap-1 underline" href={link}
+			>{title}<ArrowTopRightOnSquare class="hidden h-3 w-3 shrink-0 sm:flex" /></a
+		>
 		<p class="text-xs">{subText}</p>
 		<div class="flex flex-row items-center gap-1">
 			<UserGroup class="h-3 w-3" />
@@ -46,16 +48,5 @@
 				<p class="text-xs">{conference.location}</p>
 			{/if}
 		</div>
-	</div>
-
-	<div class="flex flex-row justify-end">
-		<a
-			class="flex h-6 w-6 flex-row items-center justify-center rounded-full p-1 hover:bg-slate-200 dark:hover:border-slate-400"
-			href={link}
-			target="_blank"
-			rel="noopener noreferrer"
-		>
-			<Link class="h-4 w-4" />
-		</a>
 	</div>
 </div>

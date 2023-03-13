@@ -2,6 +2,7 @@
 	import dayjs from 'dayjs';
 	import CalendarDays from '$lib/icons/CalendarDays.svelte';
 	import Link from '$lib/icons/Link.svelte';
+	import ArrowTopRightOnSquare from '$lib/icons/ArrowTopRightOnSquare.svelte';
 
 	export let text = '';
 	export let subText = '';
@@ -16,7 +17,14 @@
 
 <div class="flex w-full flex-col sm:flex-row sm:items-center sm:justify-between">
 	<div class="flex flex-col py-2">
-		<p>{text}</p>
+		{#if link}
+			<a class="flex flex-row items-baseline gap-1 underline" href={link}
+				>{text}<ArrowTopRightOnSquare class="hidden h-3 w-3 shrink-0 sm:flex" /></a
+			>
+		{:else}
+			<p>{text}</p>
+		{/if}
+
 		<div class="flex flex-row items-center gap-1">
 			<CalendarDays class="h-3 w-3" />
 			<p class="text-xs">{duration}</p>
@@ -28,17 +36,4 @@
 			</p>
 		{/if}
 	</div>
-
-	{#if link}
-		<div class="flex flex-row justify-end">
-			<a
-				class="flex h-6 w-6 flex-row items-center justify-center rounded-full p-1 hover:bg-slate-200 dark:hover:border-slate-400"
-				href={link}
-				target="_blank"
-				rel="noopener noreferrer"
-			>
-				<Link class="h-4 w-4" />
-			</a>
-		</div>
-	{/if}
 </div>
