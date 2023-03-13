@@ -8,10 +8,11 @@
 </script>
 
 <a
-	class={classnames('flex flex-row items-center px-4 transition', {
-		'active:bg-slate-300': Boolean(href),
+	class={classnames('flex flex-row items-center pr-4 transition', {
+		'active:bg-slate-300 dark:active:bg-slate-600': Boolean(href),
 		'rounded-t-md': isFirst,
-		'rounded-b-md': isLast
+		'rounded-b-md': isLast,
+		'pl-4': !title
 	})}
 	{href}
 	target="_blank"
@@ -19,7 +20,10 @@
 >
 	{#if title}
 		<div
-			class="flex w-10 shrink-0 flex-row items-center text-sm text-slate-800/50 dark:text-slate-100/50"
+			class={classnames(
+				'flex w-16 shrink-0 flex-row items-center justify-center text-slate-800/50 dark:text-slate-100/50',
+				title.length >= 5 ? 'text-xs' : 'text-sm'
+			)}
 		>
 			{title}
 		</div>
@@ -27,7 +31,7 @@
 
 	<div
 		class={classnames('h-full flex-1', {
-			'border-b border-b-slate-800/30 dark:border-b-slate-50/30': !isLast
+			'border-b border-b-slate-800/10 dark:border-b-slate-50/10': !isLast
 		})}
 	>
 		<slot />

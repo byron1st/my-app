@@ -27,5 +27,5 @@
 		</div>
 	</div>
 
-	<ArrowTopRightOnSquare class="flex h-3 w-3 shrink-0" />
+	<ArrowTopRightOnSquare class="h-5 w-5 shrink-0" />
 </div>
