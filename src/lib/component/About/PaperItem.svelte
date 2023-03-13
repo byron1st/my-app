@@ -19,11 +19,9 @@
 		: '';
 </script>
 
-<div class="flex w-full flex-col sm:flex-row sm:items-center sm:justify-between">
+<div class="flex w-full flex-row items-center justify-between">
 	<div class="flex flex-col py-2">
-		<a class="flex flex-row items-baseline gap-1 underline" href={link}
-			>{title}<ArrowTopRightOnSquare class="hidden h-3 w-3 shrink-0 sm:flex" /></a
-		>
+		<p>{title}</p>
 		<p class="text-xs">{subText}</p>
 		<div class="flex flex-row items-center gap-1">
 			<UserGroup class="h-3 w-3" />
@@ -49,4 +47,6 @@
 			{/if}
 		</div>
 	</div>
+
+	<ArrowTopRightOnSquare class="flex h-3 w-3 shrink-0" />
 </div>

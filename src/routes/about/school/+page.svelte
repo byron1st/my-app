@@ -14,8 +14,13 @@
 <div class="flex w-full flex-col gap-6">
 	<Section title="학력">
 		{#each educations as { degree, school, from, to, note, link }, index}
-			<SectionItem title={degree} isLast={index === educations.length - 1}>
-				<EducationItem text={school} {from} {to} subText={note} {link} />
+			<SectionItem
+				title={degree}
+				href={link}
+				isFirst={index === 0}
+				isLast={index === educations.length - 1}
+			>
+				<EducationItem text={school} {from} {to} {link} subText={note} />
 			</SectionItem>
 		{/each}
 	</Section>
@@ -24,6 +29,8 @@
 		{#each myPapers as { title, authors, conference, journal, link }, index}
 			<SectionItem
 				title={conference ? '학회' : journal ? '저널' : ''}
+				href={link}
+				isFirst={index === 0}
 				isLast={index === myPapers.length - 1}
 			>
 				<PaperItem {title} {authors} {conference} {journal} {link} />
@@ -35,6 +42,8 @@
 		{#each otherPapers as { title, authors, conference, journal, link }, index}
 			<SectionItem
 				title={conference ? '학회' : journal ? '저널' : ''}
+				href={link}
+				isFirst={index === 0}
 				isLast={index === otherPapers.length - 1}
 			>
 				<PaperItem {title} {authors} {conference} {journal} {link} />

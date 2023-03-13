@@ -1,7 +1,6 @@
 <script lang="ts">
 	import dayjs from 'dayjs';
 	import CalendarDays from '$lib/icons/CalendarDays.svelte';
-	import Link from '$lib/icons/Link.svelte';
 	import ArrowTopRightOnSquare from '$lib/icons/ArrowTopRightOnSquare.svelte';
 
 	export let text = '';
@@ -15,15 +14,9 @@
 	}`;
 </script>
 
-<div class="flex w-full flex-col sm:flex-row sm:items-center sm:justify-between">
+<div class="flex w-full flex-row items-center justify-between">
 	<div class="flex flex-col py-2">
-		{#if link}
-			<a class="flex flex-row items-baseline gap-1 underline" href={link}
-				>{text}<ArrowTopRightOnSquare class="hidden h-3 w-3 shrink-0 sm:flex" /></a
-			>
-		{:else}
-			<p>{text}</p>
-		{/if}
+		<p>{text}</p>
 
 		<div class="flex flex-row items-center gap-1">
 			<CalendarDays class="h-3 w-3" />
@@ -36,4 +29,8 @@
 			</p>
 		{/if}
 	</div>
+
+	{#if link}
+		<ArrowTopRightOnSquare class="h-3 w-3 shrink-0" />
+	{/if}
 </div>
