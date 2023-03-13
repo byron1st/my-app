@@ -33,7 +33,7 @@
 				isFirst={index === 0}
 				isLast={index === myPapers.length - 1}
 			>
-				<PaperItem {title} {authors} {conference} {journal} {link} />
+				<PaperItem {title} {authors} {conference} {journal} />
 			</SectionItem>
 		{/each}
 	</Section>
@@ -46,7 +46,7 @@
 				isFirst={index === 0}
 				isLast={index === otherPapers.length - 1}
 			>
-				<PaperItem {title} {authors} {conference} {journal} {link} />
+				<PaperItem {title} {authors} {conference} {journal} />
 			</SectionItem>
 		{/each}
 	</Section>

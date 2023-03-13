@@ -2,6 +2,7 @@
 	import dayjs from 'dayjs';
 	import Briefcase from '$lib/icons/Briefcase.svelte';
 	import CalendarDays from '$lib/icons/CalendarDays.svelte';
+	import ArrowTopRightOnSquare from '$lib/icons/ArrowTopRightOnSquare.svelte';
 
 	export let work: string;
 	export let position: string;
@@ -13,14 +14,18 @@
 	}`;
 </script>
 
-<div class="flex flex-col py-2">
-	<p>{work}</p>
-	<div class="flex flex-row items-center gap-1">
-		<Briefcase class="h-3 w-3" />
-		<p class="text-xs">{position}</p>
+<div class="flex w-full flex-row items-center justify-between">
+	<div class="flex flex-col py-2">
+		<p>{work}</p>
+		<div class="flex flex-row items-center gap-1">
+			<Briefcase class="h-3 w-3" />
+			<p class="text-xs">{position}</p>
+		</div>
+		<div class="flex flex-row items-center gap-1">
+			<CalendarDays class="h-3 w-3" />
+			<p class="text-xs">{duration}</p>
+		</div>
 	</div>
-	<div class="flex flex-row items-center gap-1">
-		<CalendarDays class="h-3 w-3" />
-		<p class="text-xs">{duration}</p>
-	</div>
+
+	<ArrowTopRightOnSquare class="flex h-3 w-3 shrink-0" />
 </div>

@@ -6,7 +6,6 @@
 
 	export let title: string;
 	export let authors: string[];
-	export let link: string;
 	export let conference: { title: string; location: string; date: string } | undefined = undefined;
 	export let journal: { title: string; volume: string; pages: string; date: string } | undefined =
 		undefined;
