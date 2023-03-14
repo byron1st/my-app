@@ -7,7 +7,7 @@
 	class="flex w-fit flex-row items-center text-sm hover:underline"
 	{href}
 	target="_blank"
-	rel="noreferrer"
+	rel="noopener noreferrer"
 >
 	<slot name="icon" />
 

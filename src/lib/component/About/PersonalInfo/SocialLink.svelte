@@ -10,6 +10,6 @@
 		class="flex h-full w-full cursor-pointer items-center justify-center"
 		href={link}
 		target="_blank"
-		rel="noreferrer">{social}</a
+		rel="noopener noreferrer">{social}</a
 	>
 </Box>
