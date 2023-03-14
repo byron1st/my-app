@@ -63,12 +63,8 @@
 
 	<Section title="기술">
 		{#each priorSkills as { type, skill }, index}
-			<SectionItem
-				title={getSkillTypeLabel(type)}
-				isFirst={index === 0}
-				isLast={index === priorSkills.length - 1}
-			>
-				<SkillItem {skill} />
+			<SectionItem isFirst={index === 0} isLast={index === priorSkills.length - 1}>
+				<SkillItem {skill} type={getSkillTypeLabel(type)} />
 			</SectionItem>
 		{/each}
 	</Section>

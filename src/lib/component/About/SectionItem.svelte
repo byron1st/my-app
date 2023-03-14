@@ -31,7 +31,7 @@
 
 	<div
 		class={classnames('h-full flex-1', {
-			'border-b border-b-slate-800/10 dark:border-b-slate-50/10': !isLast
+			'border-b border-b-slate-800/10 dark:border-b-slate-100/10': !isLast
 		})}
 	>
 		<slot />

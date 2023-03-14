@@ -14,8 +14,8 @@
 	}`;
 </script>
 
-<div class="flex w-full flex-row items-center justify-between">
-	<div class="flex flex-col py-2">
+<div class="flex w-full flex-row justify-between py-2">
+	<div class="flex flex-col">
 		<p>{text}</p>
 
 		<div class="flex flex-row items-center gap-1">
