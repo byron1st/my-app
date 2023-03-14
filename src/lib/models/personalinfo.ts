@@ -3,7 +3,6 @@ import type { MongoClient } from 'mongodb';
 const personalInfoCol = 'personalinfo';
 
 export type PersonalInfo = {
-	_id: string;
 	email: { id: string; domain: string };
 	work: { name: string; link: string };
 	home: { name: string; link: string };

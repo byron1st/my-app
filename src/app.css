@@ -23,3 +23,7 @@ http://scripts.sil.org/OFL
   font-family: 'Pretendard Variable';
   margin: 0;
 }
+
+body.disable-scrolling {
+  overflow-y: hidden;
+}

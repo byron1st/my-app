@@ -3,7 +3,6 @@ import type { MongoClient } from 'mongodb';
 const papersCol = 'papers';
 
 export type PaperType = {
-	_id: string;
 	title: string;
 	authors: string[];
 	link: string;
