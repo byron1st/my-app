@@ -35,7 +35,7 @@
 	<section class="w-full">
 		<h1 class="mb-1 px-4 text-sm text-slate-700 dark:text-slate-200">프로젝트</h1>
 
-		<div class="w-full gap-1 sm:grid sm:grid-cols-2 lg:grid-cols-3">
+		<div class="flex w-full flex-col gap-1 sm:grid sm:grid-cols-2 lg:grid-cols-3">
 			{#each projects as project}
 				<ProjectItem {project} />
 			{/each}
