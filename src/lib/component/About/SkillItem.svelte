@@ -40,11 +40,11 @@
 		<div class="flex flex-col gap-2">
 			<Box enableHover={false}>
 				<div class="flex flex-row justify-between py-2 px-4">
-					<p class="shrink-0 text-sm">기술 수준</p>
-					<div class="flex flex-col items-end">
-						<p class="text-sm text-slate-800/50 dark:text-slate-100/50">{level}/10</p>
-						<p class="text-right text-xs text-slate-800/50 dark:text-slate-100/50">{levelText}</p>
+					<div class="flex flex-col">
+						<p class="shrink-0 text-sm">기술 수준</p>
+						<p class="text-xs text-slate-800/50 dark:text-slate-100/50">{levelText}</p>
 					</div>
+					<p class="text-sm text-slate-800/50 dark:text-slate-100/50">{level}/10</p>
 				</div>
 			</Box>
 
