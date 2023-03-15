@@ -1,12 +1,12 @@
 <script lang="ts">
-	import type { PersonalInfo } from '$lib/models/personalinfo';
+	import type { PersonalInfoType } from '$lib/models/personalinfo';
 	import BuildingOffice from '$lib/icons/BuildingOffice.svelte';
 	import MapPin from '$lib/icons/MapPin.svelte';
 	import InfoItem from '$lib/component/About/PersonalInfo/InfoItem.svelte';
 	import MyEmail from '$lib/component/About/PersonalInfo/MyEmail.svelte';
 	import SocialLink from '$lib/component/About/PersonalInfo/SocialLink.svelte';
 
-	export let personalInfo: PersonalInfo;
+	export let personalInfo: PersonalInfoType;
 </script>
 
 <div class="flex w-full flex-col">

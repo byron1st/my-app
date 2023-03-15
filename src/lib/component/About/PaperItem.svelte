@@ -1,7 +1,7 @@
 <script lang="ts">
 	import CalendarDays from '$lib/icons/CalendarDays.svelte';
 	import MapPin from '$lib/icons/MapPin.svelte';
-	import UserGroup from '$lib/icons/UserGroup.svelte';
+	import Users from '$lib/icons/Users.svelte';
 	import ArrowTopRightOnSquare from '$lib/icons/ArrowTopRightOnSquare.svelte';
 
 	export let title: string;
@@ -23,7 +23,7 @@
 		<p>{title}</p>
 		<p class="text-xs">{subText}</p>
 		<div class="flex flex-row items-center gap-1">
-			<UserGroup class="h-3 w-3" />
+			<Users class="h-3 w-3" />
 			<p class="text-xs">
 				{#each authors as author, index}
 					{#if author === 'Hwi Ahn' || author === '안휘'}

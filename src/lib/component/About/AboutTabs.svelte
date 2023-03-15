@@ -8,7 +8,7 @@
 </script>
 
 <div class="flex w-full flex-row justify-center">
-	<Box classNames="flex flex-row" enableHover={false}>
+	<Box class="flex flex-row" enableHover={false}>
 		<AboutTabsItem title="Work" current={current === 'work'} href="/about" />
 		<AboutTabsItem title="School" current={current === 'school'} href="/about/school" />
 	</Box>
