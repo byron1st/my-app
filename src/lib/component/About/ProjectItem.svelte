@@ -5,6 +5,8 @@
 	import User from '$lib/icons/User.svelte';
 	import Duration from '$lib/component/About/Duration.svelte';
 	import Box from '$lib/component/Box.svelte';
+	import UserCircle from '$lib/icons/UserCircle.svelte';
+	import Users from '$lib/icons/Users.svelte';
 
 	export let project: ProjectSerialized;
 
@@ -26,6 +28,15 @@
 			{project.overview}
 		</p>
 		<Duration from={project.from} to={project.to} format="YYYY-MM" />
+		<div class="flex flex-row items-center gap-1">
+			<UserCircle class="h-3 w-3" />
+			<p class="text-xs">{project.role}</p>
+		</div>
+		<div class="flex flex-row items-center gap-1">
+			<Users class="h-3 w-3" />
+			<p class="text-xs">{project.team}</p>
+		</div>
+		<!-- TODO: Skills (e.g #Java, #Go ) -->
 	</div>
 
 	<div class="flex shrink-0 flex-row justify-end">
