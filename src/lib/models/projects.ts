@@ -12,6 +12,7 @@ export type ProjectType = {
 	description: string;
 	link?: string;
 	skillIds: ObjectId[];
+	tags: string[];
 	isPersonal: boolean;
 };
 

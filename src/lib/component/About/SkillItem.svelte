@@ -4,6 +4,8 @@
 	import Button from '$lib/component/Button.svelte';
 	import IconButton from '$lib/component/IconButton.svelte';
 	import Modal from '$lib/component/Modal.svelte';
+	import LabelAndValue from '$lib/component/LabelAndValue.svelte';
+	import LabelAndDescription from '$lib/component/LabelAndDescription.svelte';
 
 	export let skill: string;
 	export let level: number;
@@ -38,24 +40,8 @@
 {#if show}
 	<Modal title={skill} onClose={toggle}>
 		<div class="flex flex-col gap-2">
-			<Box enableHover={false}>
-				<div class="flex flex-row justify-between py-2 px-4">
-					<div class="flex flex-col">
-						<p class="shrink-0 text-sm">기술 수준</p>
-						<p class="text-xs text-slate-800/50 dark:text-slate-100/50">{levelText}</p>
-					</div>
-					<p class="text-sm text-slate-800/50 dark:text-slate-100/50">{level}/10</p>
-				</div>
-			</Box>
-
-			<Box enableHover={false}>
-				<div class="flex flex-col py-2 px-4">
-					<p class="text-sm">설명</p>
-					<div class="text-sm text-slate-800/50 dark:text-slate-100/50">
-						{@html description.replace(/\n/g, '<br/>')}
-					</div>
-				</div>
-			</Box>
+			<LabelAndValue label="기술 수준" value={`${level}/10`} description={levelText} />
+			<LabelAndDescription label="설명" {description} />
 
 			<!-- TODO: 프로젝트 데이터 추가 후
 			<Section title="연관 프로젝트">
