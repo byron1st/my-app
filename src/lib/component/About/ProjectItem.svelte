@@ -74,6 +74,11 @@
 				value={project.team}
 				description="본인 포함하여, 동시에 존재했던 팀원 숫자를 의미합니다."
 			/>
+			<LabelAndValue
+				label="코드 규모"
+				value={`${project.size}K`}
+				description="본인이 담당한 부분의 코드 라인 수를 의미합니다."
+			/>
 			<LabelAndDescription
 				label="설명"
 				description={project.description ? project.description : '\n'}

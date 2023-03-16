@@ -8,7 +8,7 @@
     "link": "https://www.hi-early.io/",
     "skillIds": [],
     "isPersonal": false,
-    "description": "",
+    "description": "서버: Go 언어로 Fiber 서버 프레임워크를 이용하여, REST API를 제공하는 서버를 작성했습니다. 데이터베이스는 MongoDB를 이용하고, MongoDB의 Aggregation 기능을 적극 활용하여, MongoDB에 없는 관계를 보완하려 노력했습니다.\n웹: Next.js 로 구현하였으며 Stitches 를 이용해서 UI 컴포넌트들을 모두 제작했습니다. 규모가 커질 수록 컴포넌트의 공용화, 코드 구조의 직관성과의 투쟁이고, 현재 진행형입니다.",
     "size": 80
   },
   {

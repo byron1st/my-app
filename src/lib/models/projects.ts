@@ -14,6 +14,7 @@ export type ProjectType = {
 	skillIds: ObjectId[];
 	tags: string[];
 	isPersonal: boolean;
+	size: number;
 };
 
 export function getProjectsCol(client: MongoClient) {
