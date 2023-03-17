@@ -1,5 +1,6 @@
 <script lang="ts">
 	import CareerItem from '$lib/component/About/CareerItem.svelte';
+	import LectureItem from '$lib/component/About/LectureItem.svelte';
 	import ProjectItem from '$lib/component/About/ProjectItem.svelte';
 	import Section from '$lib/component/About/Section.svelte';
 	import SectionItem from '$lib/component/About/SectionItem.svelte';
@@ -15,6 +16,7 @@
 	export let data: PageServerData;
 	$: skills = data.props.skills;
 	$: projects = data.props.projects;
+	$: lectures = data.props.lectures;
 </script>
 
 <div class="flex w-full flex-col gap-6">
@@ -41,4 +43,15 @@
 			{/each}
 		</div>
 	</section>
+
+	<Section
+		title="주요 강의"
+		subText="그 외에 다수의 (일반인 대상) 블록체인 소개, (주니어 개발자 대상) 소프트웨어 아키텍처 소개 강의들을 수행하였습니다."
+	>
+		{#each lectures as lecture, index}
+			<SectionItem isFirst={index === 0} isLast={index === skills.length - 1}>
+				<LectureItem {lecture} />
+			</SectionItem>
+		{/each}
+	</Section>
 </div>

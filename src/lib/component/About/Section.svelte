@@ -2,6 +2,7 @@
 	import Box from '$lib/component/Box.svelte';
 
 	export let title = '';
+	export let subText = '';
 </script>
 
 <section class="w-full">
@@ -12,4 +13,12 @@
 			<slot />
 		</div>
 	</Box>
+
+	{#if subText}
+		<div class="mt-1 w-full px-4">
+			<p class="text-xs text-slate-800/50 dark:text-slate-100/50">
+				{subText}
+			</p>
+		</div>
+	{/if}
 </section>

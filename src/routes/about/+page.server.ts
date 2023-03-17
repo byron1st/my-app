@@ -1,3 +1,4 @@
+import { getLecturesCol } from '$lib/models/lectures';
 import {
 	getProjectsCol,
 	serializeProject,
@@ -6,6 +7,7 @@ import {
 } from '$lib/models/projects';
 import { getSkillsCol, serializeSkill } from '$lib/models/skills';
 import clientPromise from '$lib/server/db';
+import { serializeId } from '$lib/server/dbutils';
 import type { MongoClient } from 'mongodb';
 import type { PageServerLoad } from './$types';
 
@@ -19,8 +21,12 @@ export const load = (async () => {
 	const currentProjects = await readProjectsWithSkills(false, client);
 	const projects = await readProjectsWithSkills(true, client);
 
+	const lectures = (await getLecturesCol(client).find({}).sort({ to: -1 }).toArray()).map(
+		serializeId
+	);
+
 	return {
-		props: { skills, projects: [...currentProjects, ...projects] }
+		props: { skills, projects: [...currentProjects, ...projects], lectures }
 	};
 }) satisfies PageServerLoad;
 
