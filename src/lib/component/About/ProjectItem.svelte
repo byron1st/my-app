@@ -1,4 +1,5 @@
 <script lang="ts">
+	import classnames from 'classnames';
 	import { getDuration } from '$lib/date';
 	import type { ProjectSerialized } from '$lib/models/projects';
 	import BuildingOffice from '$lib/icons/BuildingOffice.svelte';
@@ -11,6 +12,7 @@
 	import Button from '$lib/component/Button.svelte';
 	import LabelAndValue from '$lib/component/LabelAndValue.svelte';
 	import LabelAndDescription from '$lib/component/LabelAndDescription.svelte';
+	import LabelAndLink from '$lib/component/LabelAndLink.svelte';
 
 	export let project: ProjectSerialized;
 
@@ -83,6 +85,31 @@
 				label="설명"
 				description={project.description ? project.description : '\n'}
 			/>
+
+			<div>
+				<h1 class="px-4 text-sm text-slate-700 dark:text-slate-200">주요 기술</h1>
+				<Box enableHover={false}>
+					<div class="flex w-full flex-col">
+						{#each project.skills as skill, index}
+							<div
+								class={classnames('flex w-full flex-row justify-between py-2 px-4', {
+									'border-b border-b-slate-800/10 dark:border-b-slate-100/10':
+										index !== project.skills.length - 1
+								})}
+							>
+								<p class="text-sm text-slate-800/50 dark:text-slate-100/50">{skill.skill}</p>
+								<p class="text-end text-sm text-slate-800/50 dark:text-slate-100/50">
+									{skill.level}/10
+								</p>
+							</div>
+						{/each}
+					</div>
+				</Box>
+			</div>
+
+			{#if project.link}
+				<LabelAndLink label="링크" href={project.link} />
+			{/if}
 		</div>
 
 		<div class="flex h-full flex-row items-center justify-end" slot="footer" let:close>

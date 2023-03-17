@@ -24,7 +24,7 @@
 		</SectionItem>
 	</Section>
 
-	<Section title="기술">
+	<Section title="주요 기술">
 		{#each skills as { skill, level, description }, index}
 			<SectionItem isFirst={index === 0} isLast={index === skills.length - 1}>
 				<SkillItem {skill} {description} {level} />

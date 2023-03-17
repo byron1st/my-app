@@ -15,7 +15,13 @@ export function getSkillsCol(client: MongoClient) {
 	return client.db().collection<SkillType>(skillsCol);
 }
 
-export function serializeSkill(skill: WithId<SkillType>) {
+export type SkillSerialized = Omit<SkillType, 'projectIds' | 'lectureIds'> & {
+	_id: string;
+	projectIds: string[];
+	lectureIds?: string[];
+};
+
+export function serializeSkill(skill: WithId<SkillType>): SkillSerialized {
 	return {
 		...skill,
 		_id: skill._id.toString(),

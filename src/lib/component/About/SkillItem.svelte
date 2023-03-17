@@ -42,18 +42,6 @@
 		<div class="flex flex-col gap-2">
 			<LabelAndValue label="기술 수준" value={`${level}/10`} description={levelText} />
 			<LabelAndDescription label="설명" {description} />
-
-			<!-- TODO: 프로젝트 데이터 추가 후
-			<Section title="연관 프로젝트">
-				<SectionItem title="프로젝트1" href="/" isFirst>
-					<p class="text-xs text-slate-800/50 dark:text-slate-100/50">프로젝트1에 대한 설명</p>
-				</SectionItem>
-				<SectionItem title="프로젝트2" href="/">
-					<p class="text-xs text-slate-800/50 dark:text-slate-100/50">프로젝트2에 대한 설명</p>
-				</SectionItem><SectionItem title="프로젝트3" href="/" isLast>
-					<p class="text-xs text-slate-800/50 dark:text-slate-100/50">프로젝트3에 대한 설명</p>
-				</SectionItem>
-			</Section> -->
 		</div>
 
 		<div class="flex h-full flex-row items-center justify-end" slot="footer" let:close>
