@@ -1,7 +1,7 @@
 <script lang="ts">
 	import classnames from 'classnames';
 	import { getDuration } from '$lib/date';
-	import type { ProjectSerialized } from '$lib/models/projects';
+	import type { ProjectWithSkillSerialized } from '$lib/models/projects';
 	import BuildingOffice from '$lib/icons/BuildingOffice.svelte';
 	import User from '$lib/icons/User.svelte';
 	import UserCircle from '$lib/icons/UserCircle.svelte';
@@ -14,7 +14,7 @@
 	import LabelAndDescription from '$lib/component/LabelAndDescription.svelte';
 	import LabelAndLink from '$lib/component/LabelAndLink.svelte';
 
-	export let project: ProjectSerialized;
+	export let project: ProjectWithSkillSerialized;
 
 	let show = false;
 
@@ -54,14 +54,6 @@
 					<div class="rounded-lg bg-slate-200 py-1 px-1 text-xs dark:bg-slate-700">#{tag}</div>
 				{/each}
 			</div>
-		</div>
-
-		<div class="flex shrink-0 flex-row justify-end">
-			{#if project.isPersonal}
-				<User class="h-5 w-5" />
-			{:else}
-				<BuildingOffice class="h-5 w-5" />
-			{/if}
 		</div>
 	</button>
 </Box>

@@ -2,12 +2,18 @@
 	import type { ComponentType } from 'svelte';
 
 	export let component: ComponentType;
-	export let onClick: () => void | Promise<void>;
+	export let onClick: (() => void | Promise<void>) | undefined = undefined;
+	export let href: string | undefined = undefined;
 </script>
 
-<button
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<svelte:element
+	this={onClick ? 'button' : 'a'}
 	class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full hover:bg-slate-200 active:bg-slate-300 dark:hover:bg-slate-700 dark:active:bg-slate-600"
 	on:click={onClick}
+	{href}
+	target={href ? '_blank' : undefined}
+	rel={href ? 'noopener noreferrer' : undefined}
 >
 	<svelte:component this={component} class="h-5 w-5 shrink-0" />
-</button>
+</svelte:element>

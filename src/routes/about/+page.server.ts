@@ -1,14 +1,13 @@
 import { getLecturesCol } from '$lib/models/lectures';
 import {
 	getProjectsCol,
-	serializeProject,
-	type ProjectSerialized,
+	serializeProjectWithSkill,
+	sortProjects,
 	type ProjectWithSkillsWithId
 } from '$lib/models/projects';
 import { getSkillsCol, serializeSkill } from '$lib/models/skills';
 import clientPromise from '$lib/server/db';
 import { serializeId } from '$lib/server/dbutils';
-import type { MongoClient } from 'mongodb';
 import type { PageServerLoad } from './$types';
 
 export const load = (async () => {
@@ -18,27 +17,10 @@ export const load = (async () => {
 		serializeSkill
 	);
 
-	const currentProjects = await readProjectsWithSkills(false, client);
-	const projects = await readProjectsWithSkills(true, client);
-
-	const lectures = (await getLecturesCol(client).find({}).sort({ to: -1 }).toArray()).map(
-		serializeId
-	);
-
-	return {
-		props: { skills, projects: [...currentProjects, ...projects], lectures }
-	};
-}) satisfies PageServerLoad;
-
-async function readProjectsWithSkills(
-	isFinishedProject: boolean,
-	client: MongoClient
-): Promise<ProjectSerialized[]> {
-	return (
+	const projects = (
 		await getProjectsCol(client)
 			.aggregate<ProjectWithSkillsWithId>([
-				{ $match: { to: { $exists: isFinishedProject } } },
-				{ $sort: { isPersonal: 1 } },
+				{ $match: { isPersonal: false } },
 				{
 					$lookup: {
 						from: 'skills',
@@ -50,5 +32,15 @@ async function readProjectsWithSkills(
 				}
 			])
 			.toArray()
-	).map(serializeProject);
-}
+	)
+		.map(serializeProjectWithSkill)
+		.sort(sortProjects);
+
+	const lectures = (await getLecturesCol(client).find({}).sort({ to: -1 }).toArray()).map(
+		serializeId
+	);
+
+	return {
+		props: { skills, projects, lectures }
+	};
+}) satisfies PageServerLoad;
