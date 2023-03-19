@@ -7,5 +7,6 @@
 <!-- <MenuListItem name="posts" href="/posts" {bottomBorder} />
 <MenuListItem name="favorites" href="/favorites" {bottomBorder} />
 <MenuListItem name="logs" href="/logs" {bottomBorder} /> -->
+<MenuListItem name="projects" href="/projects" {bottomBorder} />
 <MenuListItem name="about:me" href="/about" {bottomBorder} />
-<MenuListItem name="about:page" href="/about" {bottomBorder} />
+<MenuListItem name="about:site" href="/site" {bottomBorder} />

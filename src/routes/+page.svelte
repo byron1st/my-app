@@ -25,7 +25,7 @@
 				</p>
 				<p>
 					이 웹사이트가 궁금하시면
-					<b>about:page</b>를 클릭해주세요.
+					<a href="/site"><b>about:site</b></a>를 클릭해주세요.
 				</p>
 			</Box>
 		</div>
