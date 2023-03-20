@@ -1,9 +1,7 @@
 <script lang="ts">
 	import classnames from 'classnames';
 	import { getDuration } from '$lib/date';
-	import type { ProjectWithSkillSerialized } from '$lib/models/projects';
-	import BuildingOffice from '$lib/icons/BuildingOffice.svelte';
-	import User from '$lib/icons/User.svelte';
+	import { ProjectStatus, type ProjectWithSkillSerialized } from '$lib/models/projects';
 	import UserCircle from '$lib/icons/UserCircle.svelte';
 	import Users from '$lib/icons/Users.svelte';
 	import Duration from '$lib/component/About/Duration.svelte';
@@ -13,28 +11,41 @@
 	import LabelAndValue from '$lib/component/LabelAndValue.svelte';
 	import LabelAndDescription from '$lib/component/LabelAndDescription.svelte';
 	import LabelAndLink from '$lib/component/LabelAndLink.svelte';
+	import Play from '$lib/icons/Play.svelte';
+	import Pause from '$lib/icons/Pause.svelte';
+	import Stop from '$lib/icons/Stop.svelte';
 
 	export let project: ProjectWithSkillSerialized;
 
 	let show = false;
 
-	$: isFinished = Boolean(project.to);
+	$: isStopped = project.status !== ProjectStatus.ONGOING;
 </script>
 
-<Box class={isFinished ? 'text-slate-800/50 dark:text-slate-100/50' : ''} enableClick>
+<Box class={isStopped ? 'text-slate-800/50 dark:text-slate-100/50' : ''} enableClick>
 	<button
 		class="flex w-full flex-row justify-between px-4 py-3 text-start"
 		on:click={() => (show = true)}
 	>
 		<div class="flex w-full flex-col gap-2">
-			<div>
-				<p class="leading-none">
-					{project.name}
-					{#if isFinished}<span class="text-xs">(종료)</span>{/if}
-				</p>
-				<p class="text-xs text-slate-800/50 dark:text-slate-100/50">
-					{project.overview}
-				</p>
+			<div class="flex flex-row justify-between">
+				<div>
+					<p class="leading-none">
+						{project.name}
+						{#if isStopped}<span class="text-xs">(종료)</span>{/if}
+					</p>
+					<p class="text-xs text-slate-800/50 dark:text-slate-100/50">
+						{project.overview}
+					</p>
+				</div>
+
+				{#if project.status === ProjectStatus.ONGOING}
+					<Play class="h-5 w-5 shrink-0" />
+				{:else if project.status === ProjectStatus.HOLD}
+					<Pause class="h-5 w-5 shrink-0" />
+				{:else}
+					<Stop class="h-5 w-5 shrink-0" />
+				{/if}
 			</div>
 
 			<div>

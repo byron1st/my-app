@@ -2,6 +2,12 @@ import type { MongoClient, ObjectId, WithId } from 'mongodb';
 
 const projectsCol = 'projects';
 
+export enum ProjectStatus {
+	ONGOING = 1,
+	HOLD,
+	FINISHED
+}
+
 export type ProjectType = {
 	name: string;
 	role: string;
@@ -15,6 +21,7 @@ export type ProjectType = {
 	tags: string[];
 	isPersonal: boolean;
 	size: number;
+	status: ProjectStatus;
 };
 
 export function getProjectsCol(client: MongoClient) {

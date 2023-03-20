@@ -21,6 +21,7 @@ export const load = (async () => {
 		await getProjectsCol(client)
 			.aggregate<ProjectWithSkillsWithId>([
 				{ $match: { isPersonal: false } },
+				{ $sort: { status: 1, to: -1, from: -1 } },
 				{
 					$lookup: {
 						from: 'skills',
@@ -32,9 +33,7 @@ export const load = (async () => {
 				}
 			])
 			.toArray()
-	)
-		.map(serializeProjectWithSkill)
-		.sort(sortProjects);
+	).map(serializeProjectWithSkill);
 
 	const lectures = (await getLecturesCol(client).find({}).sort({ to: -1 }).toArray()).map(
 		serializeId
