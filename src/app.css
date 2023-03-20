@@ -25,5 +25,5 @@ http://scripts.sil.org/OFL
 }
 
 body.disable-scrolling {
-  overflow-y: hidden;
+  overflow: hidden;
 }
