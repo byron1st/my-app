@@ -55,7 +55,9 @@
 							{/if}
 							<IconButton
 								component={ChevronRight}
-								href={project.isPersonal ? '/projects' : '/about#projects'}
+								href={project.isPersonal
+									? `/projects#${project._id}`
+									: `/about#projects-${project._id}`}
 								openCurrentTab
 							/>
 						</div>

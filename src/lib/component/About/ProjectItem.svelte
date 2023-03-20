@@ -22,7 +22,11 @@
 	$: isStopped = project.status !== ProjectStatus.ONGOING;
 </script>
 
-<Box class={isStopped ? 'text-slate-800/50 dark:text-slate-100/50' : ''} enableClick>
+<Box
+	id={`projects-${project._id}`}
+	class={isStopped ? 'text-slate-800/50 dark:text-slate-100/50' : ''}
+	enableClick
+>
 	<button
 		class="flex w-full flex-row justify-between px-4 py-3 text-start"
 		on:click={() => (show = true)}
