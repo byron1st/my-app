@@ -22,6 +22,7 @@ export type ProjectType = {
 	isPersonal: boolean;
 	size: number;
 	status: ProjectStatus;
+	repo?: string;
 };
 
 export function getProjectsCol(client: MongoClient) {

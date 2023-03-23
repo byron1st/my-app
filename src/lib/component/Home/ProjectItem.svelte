@@ -20,8 +20,8 @@
 	</div>
 
 	<div class="flex flex-row gap-4">
-		{#if project.link && project.link.startsWith('https://github.com')}
-			<IconButton component={GitHub} href={project.link} />
+		{#if project.repo}
+			<IconButton component={GitHub} href={`https://github.com/${project.repo}`} />
 		{/if}
 
 		{#if !project.isPersonal}

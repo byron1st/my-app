@@ -1,9 +1,4 @@
-import {
-	getProjectsCol,
-	ProjectStatus,
-	serializeProject,
-	sortProjects
-} from '$lib/models/projects';
+import { getProjectsCol, ProjectStatus, serializeProject } from '$lib/models/projects';
 import clientPromise from '$lib/server/db';
 import type { PageServerLoad } from './$types';
 

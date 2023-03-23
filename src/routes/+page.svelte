@@ -13,7 +13,7 @@
 	$: projects = data.props.projects;
 </script>
 
-<main class="flex w-full flex-col items-center">
+<div class="flex w-full flex-col items-center">
 	<div class="flex flex-col items-center gap-4 py-20">
 		<div class="flex flex-col items-center gap-2">
 			<img src="/profile1.jpeg" alt="profile" class="h-32 w-32 rounded-full border-2" />
@@ -51,4 +51,4 @@
 			</a>
 		</Box>
 	</div>
-</main>
+</div>
