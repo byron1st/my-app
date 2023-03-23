@@ -2,7 +2,6 @@ import { getLecturesCol } from '$lib/models/lectures';
 import {
 	getProjectsCol,
 	serializeProjectWithSkill,
-	sortProjects,
 	type ProjectWithSkillsWithId
 } from '$lib/models/projects';
 import { getSkillsCol, serializeSkill } from '$lib/models/skills';
