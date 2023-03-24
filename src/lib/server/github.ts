@@ -17,6 +17,7 @@ export type Repo = {
 	stargazers_count: number;
 	size: number;
 	pushed_at: string;
+	visibility: 'public' | 'private';
 	license: {
 		key: string;
 		name: string;

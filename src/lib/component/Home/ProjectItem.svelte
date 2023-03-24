@@ -2,8 +2,7 @@
 	import IconButton from '$lib/component/IconButton.svelte';
 	import BuildingOffice from '$lib/icons/BuildingOffice.svelte';
 	import ChevronRight from '$lib/icons/ChevronRight.svelte';
-	import GitHub from '$lib/icons/GitHub.svelte';
-	import type { ProjectSerialized } from '$lib/models/projects';
+	import { ProjectKind, type ProjectSerialized } from '$lib/models/projects';
 	import Home from '$lib/icons/Home.svelte';
 
 	export let project: ProjectSerialized;
@@ -11,7 +10,7 @@
 
 <div class="flex w-full flex-row justify-between py-2">
 	<div class="flex flex-row items-center gap-2">
-		{#if project.isPersonal}
+		{#if project.kind === ProjectKind.PERSONAL}
 			<Home class="h-5 w-5" />
 		{:else}
 			<BuildingOffice class="h-5 w-5" />
@@ -20,12 +19,6 @@
 	</div>
 
 	<div class="flex flex-row gap-4">
-		{#if project.repo}
-			<IconButton component={GitHub} href={`https://github.com/${project.repo}`} />
-		{/if}
-
-		{#if !project.isPersonal}
-			<IconButton component={ChevronRight} href={`/about#projects-${project._id}`} openCurrentTab />
-		{/if}
+		<IconButton component={ChevronRight} href={`/projects#${project._id}`} openCurrentTab />
 	</div>
 </div>

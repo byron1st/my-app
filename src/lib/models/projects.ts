@@ -8,6 +8,12 @@ export enum ProjectStatus {
 	FINISHED
 }
 
+export enum ProjectKind {
+	WORK = 1,
+	PERSONAL,
+	EDUCATION
+}
+
 export type ProjectType = {
 	name: string;
 	role: string;
@@ -19,10 +25,10 @@ export type ProjectType = {
 	link?: string;
 	skillIds: ObjectId[];
 	tags: string[];
-	isPersonal: boolean;
-	size: number;
+	size: number; // LOC
+	kind: ProjectKind;
 	status: ProjectStatus;
-	repo?: string;
+	repos?: string[];
 };
 
 export function getProjectsCol(client: MongoClient) {
@@ -40,14 +46,6 @@ export function serializeProject(project: WithId<ProjectType>): ProjectSerialize
 		_id: project._id.toString(),
 		skillIds: project.skillIds.map((id) => id.toString())
 	};
-}
-
-export function sortProjects(prev: ProjectSerialized, next: ProjectSerialized): number {
-	if (!prev.to && !next.to) return prev.from < next.from ? 1 : -1;
-	else if (!prev.to) return -1;
-	else if (!next.to) return 1;
-
-	return prev.to < next.to ? 1 : -1;
 }
 
 type ProjectedSkill = { skill: string; level: number };

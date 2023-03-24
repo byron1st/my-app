@@ -1,6 +1,6 @@
 <script lang="ts">
 	import ArrowTopRightOnSquare from '$lib/icons/ArrowTopRightOnSquare.svelte';
-	import Duration from '$lib/component/About/Duration.svelte';
+	import Duration from '$lib/component/Duration.svelte';
 	import type { LectureType } from '$lib/models/lectures';
 	import Users from '$lib/icons/Users.svelte';
 	import BuildingOffice from '$lib/icons/BuildingOffice.svelte';

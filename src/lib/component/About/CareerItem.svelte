@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Briefcase from '$lib/icons/Briefcase.svelte';
 	import ArrowTopRightOnSquare from '$lib/icons/ArrowTopRightOnSquare.svelte';
-	import Duration from '$lib/component/About/Duration.svelte';
+	import Duration from '$lib/component/Duration.svelte';
 
 	export let work: string;
 	export let position: string;

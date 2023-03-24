@@ -1,6 +1,7 @@
 import { getLecturesCol } from '$lib/models/lectures';
 import {
 	getProjectsCol,
+	ProjectKind,
 	serializeProjectWithSkill,
 	type ProjectWithSkillsWithId
 } from '$lib/models/projects';
@@ -19,7 +20,7 @@ export const load = (async () => {
 	const projects = (
 		await getProjectsCol(client)
 			.aggregate<ProjectWithSkillsWithId>([
-				{ $match: { isPersonal: false } },
+				{ $match: { kind: ProjectKind.WORK } },
 				{ $sort: { status: 1, to: -1, from: -1 } },
 				{
 					$lookup: {

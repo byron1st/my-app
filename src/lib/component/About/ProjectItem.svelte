@@ -4,7 +4,7 @@
 	import { ProjectStatus, type ProjectWithSkillSerialized } from '$lib/models/projects';
 	import UserCircle from '$lib/icons/UserCircle.svelte';
 	import Users from '$lib/icons/Users.svelte';
-	import Duration from '$lib/component/About/Duration.svelte';
+	import Duration from '$lib/component/Duration.svelte';
 	import Box from '$lib/component/Box.svelte';
 	import Modal from '$lib/component/Modal.svelte';
 	import Button from '$lib/component/Button.svelte';
@@ -36,7 +36,6 @@
 				<div>
 					<p class="leading-none">
 						{project.name}
-						{#if isStopped}<span class="text-xs">(종료)</span>{/if}
 					</p>
 					<p class="text-xs text-slate-800/50 dark:text-slate-100/50">
 						{project.overview}

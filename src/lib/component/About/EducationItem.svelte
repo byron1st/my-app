@@ -1,6 +1,6 @@
 <script lang="ts">
 	import ArrowTopRightOnSquare from '$lib/icons/ArrowTopRightOnSquare.svelte';
-	import Duration from '$lib/component/About/Duration.svelte';
+	import Duration from '$lib/component/Duration.svelte';
 
 	export let text = '';
 	export let subText = '';
