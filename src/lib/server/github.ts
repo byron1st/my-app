@@ -4,8 +4,6 @@ if (!GITHUB_TOKEN) {
 	throw new Error('GITHUB_TOKEN is not defined');
 }
 
-const PER_PAGE = 100;
-
 export type Repo = {
 	id: string;
 	node_id: string;
@@ -25,18 +23,34 @@ export type Repo = {
 	};
 };
 
+const PER_PAGE = 100;
+
 export async function getRepos(): Promise<Repo[]> {
-	const response = await fetch(`https://api.github.com/user/repos?per_page=${PER_PAGE}`, {
-		headers: {
-			Accept: 'application/vnd.github.v3+json',
-			Authorization: `Bearer ${GITHUB_TOKEN}`,
-			'X-GitHub-Api-Version': GITHUB_API_VERSION
+	let page = 1;
+	const repos: Repo[] = [];
+
+	// eslint-disable-next-line no-constant-condition
+	while (true) {
+		const response = await fetch(
+			`https://api.github.com/user/repos?per_page=${PER_PAGE}&type=owner&page=${page}`,
+			{
+				headers: {
+					Accept: 'application/vnd.github.v3+json',
+					Authorization: `Bearer ${GITHUB_TOKEN}`,
+					'X-GitHub-Api-Version': GITHUB_API_VERSION
+				}
+			}
+		);
+		if (!response.ok) {
+			throw new Error(`failed to fetch repos via GitHub API: ${response.status}`);
 		}
-	});
-	if (!response.ok) {
-		throw new Error(`failed to fetch repos via GitHub API: ${response.status}`);
+
+		const readRepos: Repo[] = await response.json();
+		repos.push(...readRepos);
+
+		if (readRepos.length === PER_PAGE) page += 1;
+		else break;
 	}
 
-	const repos: Repo[] = await response.json();
 	return repos;
 }

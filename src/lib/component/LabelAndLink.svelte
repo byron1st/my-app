@@ -6,7 +6,7 @@
 	export let description: string | undefined = undefined;
 </script>
 
-<Box enableClick>
+<Box enableClick enableHover={false}>
 	<a class="flex w-full flex-col py-2 px-4" {href} target="_blank" rel="noopener noreferrer">
 		<div class="flex flex-row justify-between">
 			<p class="shrink-0 text-sm">{label}</p>
