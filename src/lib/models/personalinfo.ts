@@ -7,6 +7,7 @@ export type PersonalInfoType = {
 	work: { name: string; link: string };
 	home: { name: string; link: string };
 	socials: { name: string; link: string }[];
+	introduction: string;
 };
 
 export function getPersonalInfoCol(client: MongoClient) {
