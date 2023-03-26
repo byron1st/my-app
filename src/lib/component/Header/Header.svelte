@@ -5,7 +5,7 @@
 
 <div class="flex h-12 w-full items-center justify-between gap-4 px-4 lg:w-[64rem]">
 	<a href="/" class="flex flex-row items-center gap-1">
-		<img src="/favicon.png" alt="profile" class="h-6 w-6 rounded-lg border-2" />
+		<img src="/favicon.png" alt="profile" class="h-6 w-6 rounded-lg" />
 		<p class="font-bold">Hwi's Website</p>
 	</a>
 

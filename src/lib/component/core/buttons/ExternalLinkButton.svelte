@@ -2,7 +2,6 @@
 	import Stackoverflow from '$lib/icons/Stackoverflow.svelte';
 	import GitHub from '$lib/icons/GitHub.svelte';
 	import Mastodon from '$lib/icons/Mastodon.svelte';
-	import Link from '$lib/icons/Link.svelte';
 	import Icon from '$lib/component/core/Icon.svelte';
 
 	export let social = '';

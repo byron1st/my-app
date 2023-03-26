@@ -4,7 +4,7 @@
 	import MapPin from '$lib/icons/MapPin.svelte';
 	import InfoItem from '$lib/component/About/PersonalInfo/InfoItem.svelte';
 	import MyEmail from '$lib/component/About/PersonalInfo/MyEmail.svelte';
-	import SocialLink from '$lib/component/About/PersonalInfo/SocialLink.svelte';
+	import ExternalLinkButton from '$lib/component/core/buttons/ExternalLinkButton.svelte';
 	import Icon from '$lib/component/core/Icon.svelte';
 
 	export let personalInfo: PersonalInfoType;
@@ -25,7 +25,7 @@
 
 		<div class="flex flex-row gap-2 overflow-x-auto pb-2">
 			{#each personalInfo.socials as { name: social, link, account }}
-				<SocialLink {social} {link} {account} />
+				<ExternalLinkButton {social} {link} {account} />
 			{/each}
 		</div>
 	</div>
