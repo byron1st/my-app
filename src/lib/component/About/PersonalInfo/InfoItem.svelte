@@ -4,7 +4,7 @@
 </script>
 
 <a
-	class="flex w-fit flex-row items-center text-sm hover:underline"
+	class="flex w-fit flex-row items-center hover:underline"
 	{href}
 	target="_blank"
 	rel="noopener noreferrer"

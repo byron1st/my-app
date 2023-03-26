@@ -1,15 +1,36 @@
 <script lang="ts">
-	import Box from '$lib/component/core/Box.svelte';
+	import Stackoverflow from '$lib/icons/Stackoverflow.svelte';
+	import GitHub from '$lib/icons/GitHub.svelte';
+	import Mastodon from '$lib/icons/Mastodon.svelte';
+	import Link from '$lib/icons/Link.svelte';
+	import Icon from '$lib/component/core/Icon.svelte';
 
 	export let social = '';
 	export let link = '';
+	export let account = '';
+
+	$: icon =
+		social === 'GitHub'
+			? GitHub
+			: social === 'StackOverflow'
+			? Stackoverflow
+			: social === 'Mastodon'
+			? Mastodon
+			: undefined;
 </script>
 
-<Box class="h-10 w-40 shrink-0">
+<div class="shrink-0 rounded-lg bg-slate-200 py-1 px-2 text-xs dark:bg-slate-700">
 	<a
-		class="flex h-full w-full cursor-pointer items-center justify-center"
+		class="flex h-full w-full cursor-pointer items-center justify-center gap-1"
 		href={link}
 		target="_blank"
-		rel="noopener noreferrer">{social}</a
+		rel="noopener noreferrer"
 	>
-</Box>
+		{#if icon}
+			<Icon {icon} size="sm" />
+		{:else}
+			<p>[{social}]</p>
+		{/if}
+		<p class="hover:underline">{account}</p></a
+	>
+</div>

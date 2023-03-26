@@ -6,7 +6,7 @@ export type PersonalInfoType = {
 	email: { id: string; domain: string };
 	work: { name: string; link: string };
 	home: { name: string; link: string };
-	socials: { name: string; link: string }[];
+	socials: { name: string; link: string; account: string }[];
 	introduction: string;
 };
 

@@ -11,6 +11,6 @@
 </script>
 
 <InfoItem {href}>
-	<Icon icon={Envelope} size="sm" class="mr-1" slot="icon" />
-	{id}<Icon icon={AtSymbol} size="sm" />{domain}
+	<Icon icon={Envelope} class="mr-1" slot="icon" />
+	{id}<Icon icon={AtSymbol} />{domain}
 </InfoItem>
