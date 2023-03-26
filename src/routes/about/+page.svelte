@@ -1,10 +1,10 @@
 <script lang="ts">
-	import CareerItem from '$lib/component/About/CareerItem.svelte';
-	import LectureItem from '$lib/component/About/LectureItem.svelte';
-	import Section from '$lib/component/About/Section.svelte';
-	import SectionItem from '$lib/component/About/SectionItem.svelte';
-	import SkillItem from '$lib/component/About/SkillItem.svelte';
-	import Box from '$lib/component/Box.svelte';
+	import CareerAttrs from '$lib/component/core/List/attrs/CareerAttrs.svelte';
+	import LectureAttrs from '$lib/component/core/List/attrs/LectureAttrs.svelte';
+	import SkillAttrs from '$lib/component/core/List/actions/SkillActions.svelte';
+	import List from '$lib/component/core/List/List.svelte';
+	import ListItem from '$lib/component/core/List/ListItem.svelte';
+	import ArrowTopRightOnSquare from '$lib/icons/ArrowTopRightOnSquare.svelte';
 	import ChevronRight from '$lib/icons/ChevronRight.svelte';
 	import type { PageServerData } from './$types';
 
@@ -14,35 +14,39 @@
 </script>
 
 <div class="flex w-full flex-col gap-6">
-	<Section title="경력">
-		<SectionItem href="https://bigpicturelabs.io" isFirst isLast>
-			<CareerItem work="빅픽처랩(주)" position="CTO, 풀스텍 개발자" from={new Date('2018-05-01')} />
-		</SectionItem>
-	</Section>
+	<List title="경력">
+		<ListItem
+			title="빅픽처랩(주)"
+			href="https://bigpicturelabs.io"
+			length={1}
+			index={0}
+			leftIcon={ArrowTopRightOnSquare}
+		>
+			<CareerAttrs position="CTO, 풀스텍 개발자" from={new Date('2018-05-01')} slot="attributes" />
+		</ListItem>
+	</List>
 
-	<Section title="주요 기술">
-		{#each skills as { skill, level, description }, index}
-			<SectionItem isFirst={index === 0} isLast={index === skills.length - 1}>
-				<SkillItem {skill} {description} {level} />
-			</SectionItem>
+	<List title="주요 기술">
+		{#each skills as skill, index}
+			<ListItem length={skills.length} {index} title={skill.skill}>
+				<SkillAttrs {skill} slot="leftItem" />
+			</ListItem>
 		{/each}
-	</Section>
+	</List>
 
-	<Box enableClick>
-		<a href="/projects" class="flex w-full flex-row justify-between py-2 px-4">
-			<p>프로젝트들</p>
-			<ChevronRight class="h-6 w-6" />
-		</a>
-	</Box>
+	<List>
+		<ListItem title="프로젝트들" href="/projects" length={1} index={0} leftIcon={ChevronRight} />
+	</List>
 
-	<Section
+	<List
 		title="주요 강의"
 		subText="그 외에 다수의 (일반인 대상) 블록체인 소개, (주니어 개발자 대상) 소프트웨어 아키텍처 소개 강의들을 수행하였습니다."
 	>
 		{#each lectures as lecture, index}
-			<SectionItem isFirst={index === 0} isLast={index === skills.length - 1}>
-				<LectureItem {lecture} />
-			</SectionItem>
+			<ListItem length={lectures.length} {index} title={lecture.description}>
+				<LectureAttrs {lecture} slot="attributes" />
+				<p class="shrink-0" slot="leftItem">{lecture.count}회</p>
+			</ListItem>
 		{/each}
-	</Section>
+	</List>
 </div>

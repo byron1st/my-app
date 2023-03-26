@@ -1,15 +1,13 @@
 <script lang="ts">
 	import ExclamationCircle from '$lib/icons/ExclamationCircle.svelte';
-	import Box from '$lib/component/Box.svelte';
 	import Button from '$lib/component/Button.svelte';
 	import IconButton from '$lib/component/IconButton.svelte';
 	import Modal from '$lib/component/Modal.svelte';
 	import LabelAndValue from '$lib/component/LabelAndValue.svelte';
 	import LabelAndDescription from '$lib/component/LabelAndDescription.svelte';
+	import type { SkillSerialized } from '$lib/models/skills';
 
-	export let skill: string;
-	export let level: number;
-	export let description: string;
+	export let skill: SkillSerialized;
 
 	let show = false;
 
@@ -18,9 +16,9 @@
 	}
 
 	$: levelText =
-		level >= 8
+		skill.level >= 8
 			? '현재 사용 중이고, 익숙하며, 현업에 즉시 사용 가능'
-			: level >= 5
+			: skill.level >= 5
 			? '한두번 사용해보았고, 약간의 적응 이후 현업에 사용 가능'
 			: '과거에 사용해보았으나, 현재는 사용하지 않고 있음';
 
@@ -29,19 +27,13 @@
 	// -1: 과거에 사용해보았으나, 현재는 사용하지 않고 있음
 </script>
 
-<div class="flex w-full flex-row justify-between py-2">
-	<div class="flex flex-col">
-		<p>{skill}</p>
-	</div>
-
-	<IconButton component={ExclamationCircle} onClick={toggle} />
-</div>
+<IconButton component={ExclamationCircle} onClick={toggle} />
 
 {#if show}
-	<Modal title={skill} onClose={toggle}>
+	<Modal title={skill.skill} onClose={toggle}>
 		<div class="flex flex-col gap-2">
-			<LabelAndValue label="기술 수준" value={`${level}/10`} description={levelText} />
-			<LabelAndDescription label="설명" {description} />
+			<LabelAndValue label="기술 수준" value={`${skill.level}/10`} description={levelText} />
+			<LabelAndDescription label="설명" description={skill.description} />
 		</div>
 
 		<div class="flex h-full flex-row items-center justify-end" slot="footer" let:close>

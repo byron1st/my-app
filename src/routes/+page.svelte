@@ -1,8 +1,9 @@
 <script lang="ts">
-	import Section from '$lib/component/About/Section.svelte';
-	import SectionItem from '$lib/component/About/SectionItem.svelte';
+	import ChevronRight from '$lib/icons/ChevronRight.svelte';
+	import List from '$lib/component/core/List/List.svelte';
+	import ListItem from '$lib/component/core/List/ListItem.svelte';
 	import Introduction from '$lib/component/Home/Introduction.svelte';
-	import ProjectItem from '$lib/component/Home/ProjectItem.svelte';
+	import { ProjectKind } from '$lib/models/projects';
 	import type { PageServerData } from './$types';
 
 	export let data: PageServerData;
@@ -18,12 +19,21 @@
 			<Introduction {introduction} />
 		</div>
 
-		<Section title="진행 중인 프로젝트들">
+		<List title="진행 중인 프로젝트들">
 			{#each projects as project, index}
-				<SectionItem isFirst={index === 0} isLast={index === projects.length - 1}>
-					<ProjectItem {project} />
-				</SectionItem>
+				<ListItem
+					title={project.name}
+					kind={project.kind === ProjectKind.PERSONAL
+						? '개인'
+						: project.kind === ProjectKind.EDUCATION
+						? '학습'
+						: '회사'}
+					length={projects.length}
+					{index}
+					leftIcon={ChevronRight}
+					href={`/projects#${project._id}`}
+				/>
 			{/each}
-		</Section>
+		</List>
 	</div>
 </div>

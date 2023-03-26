@@ -1,8 +1,9 @@
 <script lang="ts">
-	import EducationItem from '$lib/component/About/EducationItem.svelte';
-	import PaperItem from '$lib/component/About/PaperItem.svelte';
-	import Section from '$lib/component/About/Section.svelte';
-	import SectionItem from '$lib/component/About/SectionItem.svelte';
+	import ArrowTopRightOnSquare from '$lib/icons/ArrowTopRightOnSquare.svelte';
+	import EducationAttrs from '$lib/component/core/List/attrs/EducationAttrs.svelte';
+	import PaperAttrs from '$lib/component/core/List/attrs/PaperAttrs.svelte';
+	import List from '$lib/component/core/List/List.svelte';
+	import ListItem from '$lib/component/core/List/ListItem.svelte';
 	import type { PageServerData } from './$types';
 
 	export let data: PageServerData;
@@ -12,42 +13,48 @@
 </script>
 
 <div class="flex w-full flex-col gap-6">
-	<Section title="학력">
+	<List title="학력">
 		{#each educations as { degree, school, from, to, note, link }, index}
-			<SectionItem
-				title={degree}
+			<ListItem
+				title={school}
+				kind={degree}
 				href={link}
-				isFirst={index === 0}
-				isLast={index === educations.length - 1}
+				length={educations.length}
+				{index}
+				leftIcon={link ? ArrowTopRightOnSquare : undefined}
 			>
-				<EducationItem text={school} {from} {to} {link} subText={note} />
-			</SectionItem>
+				<EducationAttrs {from} {to} {note} slot="attributes" />
+			</ListItem>
 		{/each}
-	</Section>
+	</List>
 
-	<Section title={`논문 (1저자): ${myPapers.length}편`}>
+	<List title={`논문 (1저자): ${myPapers.length}편`}>
 		{#each myPapers as { title, authors, conference, journal, link }, index}
-			<SectionItem
-				title={conference ? '학회' : journal ? '저널' : ''}
+			<ListItem
+				kind={conference ? '학회' : journal ? '저널' : ''}
+				{title}
 				href={link}
-				isFirst={index === 0}
-				isLast={index === myPapers.length - 1}
+				length={myPapers.length}
+				{index}
+				leftIcon={ArrowTopRightOnSquare}
 			>
-				<PaperItem {title} {authors} {conference} {journal} />
-			</SectionItem>
+				<PaperAttrs {authors} {conference} {journal} slot="attributes" />
+			</ListItem>
 		{/each}
-	</Section>
+	</List>
 
-	<Section title={`논문 (기타): ${otherPapers.length}편`}>
+	<List title={`논문 (기타): ${otherPapers.length}편`}>
 		{#each otherPapers as { title, authors, conference, journal, link }, index}
-			<SectionItem
-				title={conference ? '학회' : journal ? '저널' : ''}
+			<ListItem
+				{title}
+				kind={conference ? '학회' : journal ? '저널' : ''}
 				href={link}
-				isFirst={index === 0}
-				isLast={index === otherPapers.length - 1}
+				length={myPapers.length}
+				{index}
+				leftIcon={ArrowTopRightOnSquare}
 			>
-				<PaperItem {title} {authors} {conference} {journal} />
-			</SectionItem>
+				<PaperAttrs {authors} {conference} {journal} slot="attributes" />
+			</ListItem>
 		{/each}
-	</Section>
+	</List>
 </div>
