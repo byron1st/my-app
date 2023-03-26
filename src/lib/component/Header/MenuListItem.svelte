@@ -1,17 +1,23 @@
 <script lang="ts">
+	import { createEventDispatcher } from 'svelte';
 	import classnames from 'classnames';
 	import { page } from '$app/stores';
 	import DropdownMenuItemDivider from '$lib/component/Header/DropdownMenuItemDivider.svelte';
 
 	export let name: string;
 	export let href: string;
-	export let bottomBorder: boolean = false;
+	export let onDropdown = false;
+
+	const dispatch = createEventDispatcher();
 </script>
 
 <a
 	{href}
 	class={classnames('transition hover:underline', {
 		underline: $page.url.pathname.startsWith(href)
-	})}>{name}</a
+	})}
+	on:click={onDropdown ? () => dispatch('closeDropdown') : undefined}
 >
-{#if bottomBorder} <DropdownMenuItemDivider /> {/if}
+	{name}
+</a>
+{#if onDropdown} <DropdownMenuItemDivider /> {/if}

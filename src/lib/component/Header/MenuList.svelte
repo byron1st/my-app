@@ -1,12 +1,24 @@
 <script lang="ts">
 	import MenuListItem from '$lib/component/Header/MenuListItem.svelte';
 
-	export let bottomBorder: boolean = false;
+	export let closeDropdown: (() => void) | undefined = undefined;
 </script>
 
-<!-- <MenuListItem name="posts" href="/posts" {bottomBorder} />
-<MenuListItem name="favorites" href="/favorites" {bottomBorder} />
-<MenuListItem name="logs" href="/logs" {bottomBorder} /> -->
-<MenuListItem name="projects" href="/projects" {bottomBorder} />
-<MenuListItem name="about:me" href="/about" {bottomBorder} />
-<MenuListItem name="about:site" href="/site" {bottomBorder} />
+<MenuListItem
+	name="projects"
+	href="/projects"
+	onDropdown={Boolean(closeDropdown)}
+	on:closeDropdown={closeDropdown}
+/>
+<MenuListItem
+	name="about:me"
+	href="/about"
+	onDropdown={Boolean(closeDropdown)}
+	on:closeDropdown={closeDropdown}
+/>
+<MenuListItem
+	name="about:site"
+	href="/site"
+	onDropdown={Boolean(closeDropdown)}
+	on:closeDropdown={closeDropdown}
+/>
