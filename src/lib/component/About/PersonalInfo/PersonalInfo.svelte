@@ -5,6 +5,7 @@
 	import InfoItem from '$lib/component/About/PersonalInfo/InfoItem.svelte';
 	import MyEmail from '$lib/component/About/PersonalInfo/MyEmail.svelte';
 	import SocialLink from '$lib/component/About/PersonalInfo/SocialLink.svelte';
+	import Icon from '$lib/component/core/Icon.svelte';
 
 	export let personalInfo: PersonalInfoType;
 </script>
@@ -13,10 +14,10 @@
 	<div class="text-xl font-bold">안휘 (Hwi Ahn)</div>
 	<MyEmail id={personalInfo.email.id} domain={personalInfo.email.domain} />
 	<InfoItem href={personalInfo.work.link} text={personalInfo.work.name}>
-		<BuildingOffice class="mr-1 h-4 w-4" slot="icon" />
+		<Icon icon={BuildingOffice} size="sm" class="mr-1" slot="icon" />
 	</InfoItem>
 	<InfoItem href={personalInfo.home.link} text={personalInfo.home.name}>
-		<MapPin class="mr-1 h-4 w-4" slot="icon" />
+		<Icon icon={MapPin} size="sm" class="mr-1" slot="icon" />
 	</InfoItem>
 
 	<div class="flex flex-row gap-2 overflow-x-auto py-2">

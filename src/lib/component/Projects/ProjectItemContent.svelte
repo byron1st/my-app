@@ -4,7 +4,10 @@
 	import RepoItem from '$lib/component/Projects/RepoItem.svelte';
 	import UserCircle from '$lib/icons/UserCircle.svelte';
 	import Users from '$lib/icons/Users.svelte';
-	import Duration from '$lib/component/Duration.svelte';
+	import DurationAttr from '$lib/component/core/List/attrs/DurationAttr.svelte';
+	import Tag from '$lib/component/core/Tag.svelte';
+	import TextAttr from '$lib/component/core/List/attrs/TextAttr.svelte';
+	import Icon from '$lib/component/core/Icon.svelte';
 
 	export let project: ProjectWithSkillRepoSerialized;
 	$: repos = project.repoInfo;
@@ -18,20 +21,18 @@
 		{/if}
 	</div>
 
-	<p class="text-xs text-slate-800/50 dark:text-slate-100/50">
-		{project.overview ?? ''}
-	</p>
+	<TextAttr text={project.overview} isSubtle />
 
-	<Duration from={project.from} to={project.to} format="YYYY-MM-DD" />
+	<DurationAttr from={project.from} to={project.to} format="YYYY-MM-DD" />
 
 	{#if project.kind === ProjectKind.WORK}
 		<div class="flex flex-row flex-wrap items-center">
 			<div class="mr-2 flex shrink-0 flex-row items-center gap-1">
-				<UserCircle class="h-3 w-3" />
+				<Icon icon={UserCircle} size="sm" />
 				<p class="text-xs">{project.role}</p>
 			</div>
 			<div class="flex shrink-0 flex-row items-center gap-1">
-				<Users class="h-3 w-3" />
+				<Icon icon={Users} size="sm" />
 				<p class="text-xs">{project.team}</p>
 			</div>
 		</div>
@@ -45,7 +46,7 @@
 
 	<div class="mt-2 flex flex-row flex-wrap gap-1">
 		{#each project.tags as tag}
-			<div class="rounded-lg bg-slate-200 py-1 px-1 text-xs dark:bg-slate-700">#{tag}</div>
+			<Tag {tag} />
 		{/each}
 	</div>
 </div>

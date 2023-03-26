@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { fade, fly } from 'svelte/transition';
 	import classnames from 'classnames';
-	import IconButton from '$lib/component/IconButton.svelte';
+	import IconButton from '$lib/component/core/buttons/IconButton.svelte';
 	import XMark from '$lib/icons/XMark.svelte';
 
 	export let title: string;

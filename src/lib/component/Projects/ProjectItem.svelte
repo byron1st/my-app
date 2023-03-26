@@ -13,6 +13,7 @@
 	import Stop from '$lib/icons/Stop.svelte';
 	import ProjectItemContent from '$lib/component/Projects/ProjectItemContent.svelte';
 	import ProjectItemModal from '$lib/component/Projects/ProjectItemModal.svelte';
+	import Icon from '$lib/component/core/Icon.svelte';
 
 	export let project: ProjectWithSkillRepoSerialized;
 	$: isStopped = project.status !== ProjectStatus.ONGOING;
@@ -33,11 +34,11 @@
 	<div class="flex flex-row">
 		<div class="flex w-10 shrink-0 flex-row items-center">
 			{#if project.status === ProjectStatus.ONGOING}
-				<Play class="h-5 w-5 shrink-0" />
+				<Icon icon={Play} class="shrink-0" />
 			{:else if project.status === ProjectStatus.HOLD}
-				<Pause class="h-5 w-5 shrink-0" />
+				<Icon icon={Pause} class="shrink-0" />
 			{:else}
-				<Stop class="h-5 w-5 shrink-0" />
+				<Icon icon={Stop} class="shrink-0" />
 			{/if}
 		</div>
 
@@ -46,11 +47,11 @@
 
 	<div class="shrink-0">
 		{#if project.kind === ProjectKind.WORK}
-			<BuildingOffice class="h-6 w-6" />
+			<Icon icon={BuildingOffice} size="lg" />
 		{:else if project.kind === ProjectKind.PERSONAL}
-			<Home class="h-6 w-6" />
+			<Icon icon={Home} size="lg" />
 		{:else}
-			<AcademicCap class="h-6 w-6" />
+			<Icon icon={AcademicCap} size="lg" />
 		{/if}
 	</div>
 </button>

@@ -2,6 +2,8 @@
 	import CalendarDays from '$lib/icons/CalendarDays.svelte';
 	import MapPin from '$lib/icons/MapPin.svelte';
 	import Users from '$lib/icons/Users.svelte';
+	import Attrs from '$lib/component/core/List/attrs/Attrs.svelte';
+	import TextAttr from '$lib/component/core/List/attrs/TextAttr.svelte';
 
 	export let authors: string[];
 	export let conference: { title: string; location: string; date: string } | undefined = undefined;
@@ -14,30 +16,23 @@
 		: journal
 		? `${journal.title}, ${journal.volume}, pp.${journal.pages}`
 		: '';
+	$: authorsText = authors
+		.map((author) => {
+			if (author === 'Hwi Ahn' || author === '안휘') {
+				return `<span class="font-bold text-blue-600 dark:text-blue-300">${author}</span>`;
+			}
+			return author;
+		})
+		.join(', ');
 </script>
 
-<p class="text-xs">{subText}</p>
+<TextAttr text={subText} />
 
-<div class="flex flex-row items-center gap-1">
-	<Users class="h-3 w-3" />
-	<p class="text-xs">
-		{#each authors as author, index}
-			{#if author === 'Hwi Ahn' || author === '안휘'}
-				<span class="font-bold text-blue-600 dark:text-blue-300">{author}</span>
-			{:else}
-				{author}
-			{/if}
-			{index !== authors.length - 1 ? ', ' : ''}
-		{/each}
-	</p>
-</div>
+<Attrs attrs={[{ component: Users, value: authorsText }]} />
 
-<div class="flex flex-row items-center gap-1">
-	<CalendarDays class="h-3 w-3" />
-	<p class="mr-1 text-xs">{date}</p>
-
-	{#if conference}
-		<MapPin class="h-3 w-3" />
-		<p class="text-xs">{conference.location}</p>
-	{/if}
-</div>
+<Attrs
+	attrs={[
+		{ component: CalendarDays, value: date ?? '' },
+		conference ? { component: MapPin, value: conference.location } : undefined
+	]}
+/>

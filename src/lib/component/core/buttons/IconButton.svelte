@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { ComponentType } from 'svelte';
+	import Icon from '$lib/component/core/Icon.svelte';
 
 	export let component: ComponentType;
 	export let onClick: (() => void | Promise<void>) | undefined = undefined;
@@ -16,5 +17,5 @@
 	target={href && !openCurrentTab ? '_blank' : undefined}
 	rel={href && !openCurrentTab ? 'noopener noreferrer' : undefined}
 >
-	<svelte:component this={component} class="h-5 w-5 shrink-0" />
+	<Icon icon={component} class="shrink-0" />
 </svelte:element>

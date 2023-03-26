@@ -1,4 +1,6 @@
 <script lang="ts">
+	import Box from '$lib/component/core/Box.svelte';
+
 	export let title: string = '';
 	export let subText = '';
 </script>
@@ -8,11 +10,9 @@
 		<h1 class="mb-1 px-4 text-sm text-slate-700 dark:text-slate-200">{title}</h1>
 	{/if}
 
-	<div
-		class="rounded-md border border-slate-800/10 bg-slate-100 transition dark:border-slate-100/10 dark:bg-slate-800"
-	>
+	<Box>
 		<slot />
-	</div>
+	</Box>
 
 	{#if subText}
 		<div class="mt-1 w-full px-4">

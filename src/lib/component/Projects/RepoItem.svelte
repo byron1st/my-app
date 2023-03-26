@@ -6,6 +6,7 @@
 	import GitCommitOutline from '$lib/icons/GitCommitOutline.svelte';
 	import GitHub from '$lib/icons/GitHub.svelte';
 	import type { RepositoryType } from '$lib/models/repositories';
+	import Icon from '$lib/component/core/Icon.svelte';
 
 	export let repo: RepositoryType;
 </script>
@@ -17,22 +18,22 @@
 		target="_blank"
 		rel="noopener noreferrer"
 	>
-		<GitHub class="h-3 w-3" />
+		<Icon icon={GitHub} size="sm" />
 		{#if repo.visibility === 'private'}
-			<EyeSlash class="h-3 w-3" />
+			<Icon icon={EyeSlash} size="sm" />
 		{:else}
-			<Eye class="h-3 w-3" />
+			<Icon icon={Eye} size="sm" />
 		{/if}
 		<p class="text-xs">{repo.name}</p>
 	</a>
 
 	<div class="mr-2 flex flex-row items-center gap-1">
-		<CodeBracket class="h-3 w-3" />
+		<Icon icon={CodeBracket} size="sm" />
 		<p class="text-xs">{repo.language}</p>
 	</div>
 
 	<div class="flex flex-row items-center gap-1">
-		<GitCommitOutline class="h-3 w-3" />
+		<Icon icon={GitCommitOutline} size="sm" />
 		<p class="text-xs">{dayjs(repo.pushedAt).format('YYYY-MM-DD')}</p>
 	</div>
 </div>

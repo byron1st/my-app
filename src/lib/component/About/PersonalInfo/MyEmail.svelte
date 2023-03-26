@@ -2,6 +2,7 @@
 	import AtSymbol from '$lib/icons/AtSymbol.svelte';
 	import Envelope from '$lib/icons/Envelope.svelte';
 	import InfoItem from '$lib/component/About/PersonalInfo/InfoItem.svelte';
+	import Icon from '$lib/component/core/Icon.svelte';
 
 	export let id = '';
 	export let domain = '';
@@ -10,6 +11,6 @@
 </script>
 
 <InfoItem {href}>
-	<Envelope class="mr-1 h-4 w-4" slot="icon" />
-	{id}<AtSymbol class="h-3 w-3" />{domain}
+	<Icon icon={Envelope} size="sm" class="mr-1" slot="icon" />
+	{id}<Icon icon={AtSymbol} size="sm" />{domain}
 </InfoItem>

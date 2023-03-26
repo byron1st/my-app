@@ -1,11 +1,11 @@
 <script lang="ts">
 	import ExclamationCircle from '$lib/icons/ExclamationCircle.svelte';
-	import Button from '$lib/component/Button.svelte';
-	import IconButton from '$lib/component/IconButton.svelte';
-	import Modal from '$lib/component/Modal.svelte';
-	import LabelAndValue from '$lib/component/LabelAndValue.svelte';
-	import LabelAndDescription from '$lib/component/LabelAndDescription.svelte';
+	import Button from '$lib/component/core/buttons/Button.svelte';
+	import IconButton from '$lib/component/core/buttons/IconButton.svelte';
+	import Modal from '$lib/component/core/Modal.svelte';
 	import type { SkillSerialized } from '$lib/models/skills';
+	import Description from '$lib/component/core/Description/Description.svelte';
+	import MultilineDescription from '$lib/component/core/Description/MultilineDescription.svelte';
 
 	export let skill: SkillSerialized;
 
@@ -32,8 +32,8 @@
 {#if show}
 	<Modal title={skill.skill} onClose={toggle}>
 		<div class="flex flex-col gap-2">
-			<LabelAndValue label="기술 수준" value={`${skill.level}/10`} description={levelText} />
-			<LabelAndDescription label="설명" description={skill.description} />
+			<Description label="기술 수준" value={`${skill.level}/10`} description={levelText} />
+			<MultilineDescription label="설명" description={skill.description} />
 		</div>
 
 		<div class="flex h-full flex-row items-center justify-end" slot="footer" let:close>

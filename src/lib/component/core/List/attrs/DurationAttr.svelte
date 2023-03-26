@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Attrs from '$lib/component/core/List/attrs/Attrs.svelte';
 	import { getDuration } from '$lib/date';
 	import CalendarDays from '$lib/icons/CalendarDays.svelte';
 
@@ -7,7 +8,4 @@
 	export let format: string | undefined = undefined;
 </script>
 
-<div class="flex flex-row items-center gap-1">
-	<CalendarDays class="h-3 w-3" />
-	<p class="text-xs">{getDuration(from, to, format)}</p>
-</div>
+<Attrs attrs={[{ component: CalendarDays, value: getDuration(from, to, format) }]} />
