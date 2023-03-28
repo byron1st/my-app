@@ -6,9 +6,12 @@ import type { PageServerLoad } from './$types';
 export const load = (async () => {
 	const client = await clientPromise;
 
-	const stacks = (await getTechStacksCol(client).find({}).toArray()).map(serializeId);
+	const stacks = getTechStacksCol(client)
+		.find({})
+		.toArray()
+		.then((result) => result.map(serializeId));
 
 	return {
-		props: { stacks }
+		stacks: { streamed: stacks }
 	};
 }) satisfies PageServerLoad;

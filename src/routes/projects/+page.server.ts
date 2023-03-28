@@ -5,9 +5,11 @@ import type { PageServerLoad } from './$types';
 export const load = (async () => {
 	const client = await clientPromise;
 
-	const projects = (await readProjectsWithSkillsRepos(client)).map(serializeProjectWithSkillRepo);
+	const projects = readProjectsWithSkillsRepos(client).then((result) =>
+		result.map(serializeProjectWithSkillRepo)
+	);
 
 	return {
-		props: { projects }
+		projects: { streamed: projects }
 	};
 }) satisfies PageServerLoad;

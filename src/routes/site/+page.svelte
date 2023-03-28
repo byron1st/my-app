@@ -5,6 +5,8 @@
 	import List from '$lib/component/core/List/List.svelte';
 	import ListItem from '$lib/component/core/List/ListItem.svelte';
 	import ArrowTopRightOnSquare from '$lib/icons/ArrowTopRightOnSquare.svelte';
+	import LoadingError from '$lib/component/LoadingError.svelte';
+	import SkeletonListItems from '$lib/component/core/List/SkeletonListItems.svelte';
 	import type { PageServerData } from './$types';
 
 	export let data: PageServerData;
@@ -40,17 +42,23 @@
 		</Box>
 
 		<List title="주요 기술 스택">
-			{#each data.props.stacks as techStack, index}
-				<ListItem
-					title={techStack.name}
-					length={data.props.stacks.length}
-					{index}
-					href={techStack.link}
-					leftIcon={ArrowTopRightOnSquare}
-				>
-					<TextAttr text={techStack.stack} isSubtle slot="attributes" />
-				</ListItem>
-			{/each}
+			{#await data.stacks.streamed}
+				<SkeletonListItems />
+			{:then stacks}
+				{#each stacks as techStack, index}
+					<ListItem
+						title={techStack.name}
+						length={stacks.length}
+						{index}
+						href={techStack.link}
+						leftIcon={ArrowTopRightOnSquare}
+					>
+						<TextAttr text={techStack.stack} isSubtle slot="attributes" />
+					</ListItem>
+				{/each}
+			{:catch error}
+				<LoadingError {error} />
+			{/await}
 		</List>
 	</div>
 </div>

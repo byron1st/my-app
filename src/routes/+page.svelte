@@ -5,10 +5,11 @@
 	import ListItem from '$lib/component/core/List/ListItem.svelte';
 	import Introduction from '$lib/component/Home/Introduction.svelte';
 	import { ProjectKind } from '$lib/models/projects';
+	import LoadingError from '$lib/component/LoadingError.svelte';
+	import SkeletonListItems from '$lib/component/core/List/SkeletonListItems.svelte';
 	import type { PageServerData } from './$types';
 
 	export let data: PageServerData;
-	$: projects = data.projects;
 
 	const personalInfo = get();
 </script>
@@ -22,20 +23,26 @@
 		</div>
 
 		<List title="진행 중인 프로젝트들">
-			{#each projects as project, index}
-				<ListItem
-					title={project.name}
-					kind={project.kind === ProjectKind.PERSONAL
-						? '개인'
-						: project.kind === ProjectKind.EDUCATION
-						? '학습'
-						: '회사'}
-					length={projects.length}
-					{index}
-					leftIcon={ChevronRight}
-					href={`/projects#${project._id}`}
-				/>
-			{/each}
+			{#await data.projects.streamed}
+				<SkeletonListItems />
+			{:then projects}
+				{#each projects as project, index}
+					<ListItem
+						title={project.name}
+						kind={project.kind === ProjectKind.PERSONAL
+							? '개인'
+							: project.kind === ProjectKind.EDUCATION
+							? '학습'
+							: '회사'}
+						length={projects.length}
+						{index}
+						leftIcon={ChevronRight}
+						href={`/projects#${project._id}`}
+					/>
+				{/each}
+			{:catch error}
+				<LoadingError {error} />
+			{/await}
 		</List>
 	</div>
 </div>

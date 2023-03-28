@@ -6,11 +6,11 @@
 	import ListItem from '$lib/component/core/List/ListItem.svelte';
 	import ArrowTopRightOnSquare from '$lib/icons/ArrowTopRightOnSquare.svelte';
 	import ChevronRight from '$lib/icons/ChevronRight.svelte';
+	import LoadingError from '$lib/component/LoadingError.svelte';
+	import SkeletonListItems from '$lib/component/core/List/SkeletonListItems.svelte';
 	import type { PageServerData } from './$types';
 
 	export let data: PageServerData;
-	$: skills = data.props.skills;
-	$: lectures = data.props.lectures;
 </script>
 
 <div class="flex w-full flex-col gap-6">
@@ -27,11 +27,17 @@
 	</List>
 
 	<List title="주요 기술">
-		{#each skills as skill, index}
-			<ListItem length={skills.length} {index} title={skill.skill}>
-				<SkillAttrs {skill} slot="leftItem" />
-			</ListItem>
-		{/each}
+		{#await data.skills.streamed}
+			<SkeletonListItems />
+		{:then skills}
+			{#each skills as skill, index}
+				<ListItem length={skills.length} {index} title={skill.skill}>
+					<SkillAttrs {skill} slot="leftItem" />
+				</ListItem>
+			{/each}
+		{:catch error}
+			<LoadingError {error} />
+		{/await}
 	</List>
 
 	<List>
@@ -42,11 +48,17 @@
 		title="주요 강의"
 		subText="그 외에 다수의 (일반인 대상) 블록체인 소개, (주니어 개발자 대상) 소프트웨어 아키텍처 소개 강의들을 수행하였습니다."
 	>
-		{#each lectures as lecture, index}
-			<ListItem length={lectures.length} {index} title={lecture.description}>
-				<LectureAttrs {lecture} slot="attributes" />
-				<p class="shrink-0" slot="leftItem">{lecture.count}회</p>
-			</ListItem>
-		{/each}
+		{#await data.lectures.streamed}
+			<SkeletonListItems />
+		{:then lectures}
+			{#each lectures as lecture, index}
+				<ListItem length={lectures.length} {index} title={lecture.description}>
+					<LectureAttrs {lecture} slot="attributes" />
+					<p class="shrink-0" slot="leftItem">{lecture.count}회</p>
+				</ListItem>
+			{/each}
+		{:catch error}
+			<LoadingError {error} />
+		{/await}
 	</List>
 </div>

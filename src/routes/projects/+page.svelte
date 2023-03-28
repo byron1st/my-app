@@ -1,4 +1,5 @@
 <script lang="ts">
+	import LoadingError from '$lib/component/LoadingError.svelte';
 	import ProjectItem from '$lib/component/Projects/ProjectItem.svelte';
 	import type { PageServerData } from './$types';
 
@@ -7,8 +8,12 @@
 
 <div class="flex w-full flex-col">
 	<div class="flex flex-col sm:py-20">
-		{#each data.props.projects as project}
-			<ProjectItem {project} />
-		{/each}
+		{#await data.projects.streamed then projects}
+			{#each projects as project}
+				<ProjectItem {project} />
+			{/each}
+		{:catch error}
+			<LoadingError {error} />
+		{/await}
 	</div>
 </div>
