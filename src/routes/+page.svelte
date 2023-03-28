@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { get } from '$lib/stores/personalinfo';
 	import ChevronRight from '$lib/icons/ChevronRight.svelte';
 	import List from '$lib/component/core/List/List.svelte';
 	import ListItem from '$lib/component/core/List/ListItem.svelte';
@@ -7,8 +8,9 @@
 	import type { PageServerData } from './$types';
 
 	export let data: PageServerData;
-	$: projects = data.props.projects;
-	$: introduction = data.props.personalInfo.introduction;
+	$: projects = data.projects;
+
+	const personalInfo = get();
 </script>
 
 <div class="flex w-full flex-col items-center">
@@ -16,7 +18,7 @@
 		<div class="flex flex-col items-center gap-2">
 			<img src="/profile.jpeg" alt="profile" class="h-32 w-32 rounded-full border-2" />
 			<h1 class="text-2xl font-bold">Hello, World!</h1>
-			<Introduction {introduction} />
+			<Introduction introduction={$personalInfo.introduction} />
 		</div>
 
 		<List title="진행 중인 프로젝트들">

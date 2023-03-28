@@ -1,14 +1,13 @@
 <script lang="ts">
+	import { get } from '$lib/stores/personalinfo';
 	import AboutTabs from '$lib/component/About/AboutTabs.svelte';
 	import PersonalInfo from '$lib/component/About/PersonalInfo/PersonalInfo.svelte';
-	import type { LayoutServerData } from './$types';
 
-	export let data: LayoutServerData;
-	$: personalInfo = data.personalInfo;
+	const personalInfo = get();
 </script>
 
 <div class="flex w-full flex-col gap-4 py-10">
-	<PersonalInfo {personalInfo} />
+	<PersonalInfo personalInfo={$personalInfo} />
 	<AboutTabs />
 	<slot />
 </div>

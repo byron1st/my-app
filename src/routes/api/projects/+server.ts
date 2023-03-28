@@ -1,9 +1,9 @@
 import { error, json } from '@sveltejs/kit';
 import { getRepos } from '$lib/server/github';
 import { ADMIN_API_KEY } from '$env/static/private';
-import type { RequestHandler } from './$types';
 import clientPromise from '$lib/server/db';
 import { getRepositoriesCol } from '$lib/models/repositories';
+import type { RequestHandler } from './$types';
 
 export const PATCH = (async ({ request }) => {
 	if (request.headers.get('admin-api-key') !== ADMIN_API_KEY) {

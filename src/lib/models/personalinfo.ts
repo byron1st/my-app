@@ -13,3 +13,5 @@ export type PersonalInfoType = {
 export function getPersonalInfoCol(client: MongoClient) {
 	return client.db().collection<PersonalInfoType>(personalInfoCol);
 }
+
+export type PersonalInfoSerialized = Omit<PersonalInfoType, '_id'> & { _id: string };

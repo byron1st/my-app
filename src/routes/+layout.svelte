@@ -1,6 +1,12 @@
 <script lang="ts">
 	import Header from '$lib/component/Header/Header.svelte';
 	import '../app.css';
+	import type { LayoutData } from './$types';
+	import { set } from '$lib/stores/personalinfo';
+
+	export let data: LayoutData;
+
+	set(data.personalInfo);
 </script>
 
 <div
