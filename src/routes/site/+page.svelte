@@ -12,6 +12,13 @@
 	export let data: PageServerData;
 </script>
 
+<svelte:head>
+	<meta
+		name="description"
+		content="Description about the purpose and tech stacks of Hwi's Website"
+	/>
+</svelte:head>
+
 <div class="flex w-full flex-col items-center">
 	<div class="w-max-md flex flex-col items-center gap-6 sm:py-20">
 		<div class="flex flex-row items-center gap-2 pt-6 sm:pt-0">

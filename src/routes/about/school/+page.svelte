@@ -11,6 +11,10 @@
 	export let data: PageServerData;
 </script>
 
+<svelte:head>
+	<meta name="description" content="Description about Hwi's education and papers" />
+</svelte:head>
+
 <div class="flex w-full flex-col gap-6">
 	<List title="학력">
 		{#await data.educations.streamed}

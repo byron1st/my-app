@@ -13,6 +13,13 @@
 	export let data: PageServerData;
 </script>
 
+<svelte:head>
+	<meta
+		name="description"
+		content="Description about Hwi's career, professional skills, and lectures"
+	/>
+</svelte:head>
+
 <div class="flex w-full flex-col gap-6">
 	<List title="경력">
 		<ListItem

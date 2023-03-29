@@ -14,6 +14,10 @@
 	const personalInfo = get();
 </script>
 
+<svelte:head>
+	<meta name="description" content="Home of Hwi's Website" />
+</svelte:head>
+
 <div class="flex w-full flex-col items-center">
 	<div class="flex max-w-md flex-col items-center gap-4 sm:py-20">
 		<div class="flex flex-col items-center gap-2">
