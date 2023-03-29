@@ -15,7 +15,7 @@
 <div class="flex w-full flex-col items-center">
 	<div class="w-max-md flex flex-col items-center gap-6 sm:py-20">
 		<div class="flex flex-row items-center gap-2 pt-6 sm:pt-0">
-			<img src="/favicon.png" alt="profile" class="h-10 w-10 rounded-lg" />
+			<img src="/icon.min.svg" alt="profile" class="h-10 w-10 rounded-lg" />
 			<h1 class="text-2xl font-bold">Hwi's Website</h1>
 		</div>
 

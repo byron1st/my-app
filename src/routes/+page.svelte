@@ -17,7 +17,7 @@
 <div class="flex w-full flex-col items-center">
 	<div class="flex max-w-md flex-col items-center gap-4 sm:py-20">
 		<div class="flex flex-col items-center gap-2">
-			<img src="/profile.jpeg" alt="profile" class="h-32 w-32 rounded-full border-2" />
+			<img src="/profile.jpg" alt="profile" class="h-32 w-32 rounded-full border-2" />
 			<h1 class="text-2xl font-bold">Hello, World!</h1>
 			<Introduction introduction={$personalInfo.introduction} />
 		</div>
