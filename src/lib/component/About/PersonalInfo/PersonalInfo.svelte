@@ -11,7 +11,7 @@
 </script>
 
 <div class="flex w-full flex-col items-center sm:flex-row sm:justify-between">
-	<img src="/profile.jpeg" alt="profile" class="mb-2 h-16 w-16 rounded-full border-2 sm:hidden" />
+	<img src="/profile.jpg" alt="profile" class="mb-2 h-16 w-16 rounded-full border-2 sm:hidden" />
 
 	<div class="flex w-full flex-col gap-1">
 		<div class="text-xl font-bold">안휘 (Hwi Ahn)</div>
@@ -30,5 +30,5 @@
 		</div>
 	</div>
 
-	<img src="/profile.jpeg" alt="profile" class="hidden h-32 w-32 rounded-full border-2 sm:flex" />
+	<img src="/profile.jpg" alt="profile" class="hidden h-32 w-32 rounded-full border-2 sm:flex" />
 </div>
