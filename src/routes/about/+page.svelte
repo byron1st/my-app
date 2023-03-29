@@ -1,7 +1,7 @@
 <script lang="ts">
 	import CareerAttrs from '$lib/component/core/List/attrs/CareerAttrs.svelte';
 	import LectureAttrs from '$lib/component/core/List/attrs/LectureAttrs.svelte';
-	import SkillAttrs from '$lib/component/core/List/actions/SkillActions.svelte';
+	import SkillActions from '$lib/component/core/List/actions/SkillActions.svelte';
 	import List from '$lib/component/core/List/List.svelte';
 	import ListItem from '$lib/component/core/List/ListItem.svelte';
 	import ArrowTopRightOnSquare from '$lib/icons/ArrowTopRightOnSquare.svelte';
@@ -32,7 +32,7 @@
 		{:then skills}
 			{#each skills as skill, index}
 				<ListItem length={skills.length} {index} title={skill.skill}>
-					<SkillAttrs {skill} slot="leftItem" />
+					<SkillActions {skill} slot="leftItem" />
 				</ListItem>
 			{/each}
 		{:catch error}

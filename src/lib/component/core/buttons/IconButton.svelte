@@ -6,6 +6,7 @@
 	export let onClick: (() => void | Promise<void>) | undefined = undefined;
 	export let href: string | undefined = undefined;
 	export let openCurrentTab: boolean | undefined = undefined;
+	export let ariaLabel: string | undefined = undefined;
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -16,6 +17,7 @@
 	{href}
 	target={href && !openCurrentTab ? '_blank' : undefined}
 	rel={href && !openCurrentTab ? 'noopener noreferrer' : undefined}
+	aria-label={ariaLabel}
 >
 	<Icon icon={component} class="shrink-0" />
 </svelte:element>

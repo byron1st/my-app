@@ -12,7 +12,7 @@
 	}
 </script>
 
-<button on:click={() => (show = !show)}>
+<button on:click={() => (show = !show)} aria-label="Menu">
 	{#if show}
 		<FadeInIcon icon={XMark} />
 	{:else}

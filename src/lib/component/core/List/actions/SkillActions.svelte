@@ -27,7 +27,11 @@
 	// -1: 과거에 사용해보았으나, 현재는 사용하지 않고 있음
 </script>
 
-<IconButton component={ExclamationCircle} onClick={toggle} />
+<IconButton
+	component={ExclamationCircle}
+	onClick={toggle}
+	ariaLabel={`"More about my ${skill.skill} skill"`}
+/>
 
 {#if show}
 	<Modal title={skill.skill} onClose={toggle}>

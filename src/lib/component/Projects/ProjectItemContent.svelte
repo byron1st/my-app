@@ -17,7 +17,12 @@
 	<div class="flex flex-row items-baseline gap-1">
 		{project.name}
 		{#if project.link}
-			<a href={project.link} target="_blank" rel="noopener noreferrer"><Link class="h-3 w-3" /></a>
+			<a
+				href={project.link}
+				target="_blank"
+				rel="noopener noreferrer"
+				aria-label="Open a link to the project website"><Link class="h-3 w-3" /></a
+			>
 		{/if}
 	</div>
 
