@@ -2,12 +2,12 @@
   "name": "Hwi's Website",
   "icons": [
     {
-      "src": "/icon-192.min.png",
+      "src": "/icon-192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "/icon-512.min.png",
+      "src": "/icon-512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
