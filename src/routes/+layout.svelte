@@ -1,12 +1,16 @@
 <script lang="ts">
+	import { inject } from '@vercel/analytics';
+	import { dev } from '$app/environment';
 	import Header from '$lib/component/Header/Header.svelte';
-	import '../app.css';
-	import type { LayoutData } from './$types';
 	import { set } from '$lib/stores/personalinfo';
+	import type { LayoutData } from './$types';
+	import '../app.css';
 
 	export let data: LayoutData;
 
 	set(data.personalInfo);
+
+	inject({ mode: dev ? 'development' : 'production' });
 </script>
 
 <div
