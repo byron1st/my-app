@@ -10,11 +10,12 @@ export const PATCH = (async ({ request }) => {
 		throw error(401, 'Unauthorized');
 	}
 
-	const repos = await getRepos();
+	const ownerRepos = await getRepos('owner');
+	const memberRepos = await getRepos('member');
 
 	const client = await clientPromise;
 	await getRepositoriesCol(client).bulkWrite(
-		repos.map((repo) => ({
+		[...ownerRepos, ...memberRepos].map((repo) => ({
 			updateOne: {
 				filter: { name: repo.full_name },
 				update: {

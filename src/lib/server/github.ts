@@ -25,14 +25,14 @@ export type Repo = {
 
 const PER_PAGE = 100;
 
-export async function getRepos(): Promise<Repo[]> {
+export async function getRepos(type: 'owner' | 'member'): Promise<Repo[]> {
 	let page = 1;
 	const repos: Repo[] = [];
 
 	// eslint-disable-next-line no-constant-condition
 	while (true) {
 		const response = await fetch(
-			`https://api.github.com/user/repos?per_page=${PER_PAGE}&type=owner&page=${page}`,
+			`https://api.github.com/user/repos?per_page=${PER_PAGE}&type=${type}&page=${page}`,
 			{
 				headers: {
 					Accept: 'application/vnd.github.v3+json',

@@ -57,9 +57,11 @@
 							<div class="flex flex-col" slot="content">
 								<p class="text-sm">{repo.name}</p>
 								<p class="text-xs text-slate-800/50 dark:text-slate-100/50">
-									{repo.visibility === 'private' ? '비공개' : '공개'}, {repo.language}{repo.license
-										? `, ${repo.license.name}`
-										: ''}, {dayjs(repo.pushedAt).format('YYYY-MM-DD')}
+									{repo.visibility === 'private' ? '비공개' : '공개'}{repo.language
+										? `, ${repo.language}`
+										: ''}{repo.license ? `, ${repo.license.name}` : ''}, {dayjs(
+										repo.pushedAt
+									).format('YYYY-MM-DD')}
 								</p>
 							</div>
 						</ListItem>
