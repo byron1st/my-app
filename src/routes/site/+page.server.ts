@@ -8,6 +8,7 @@ export const load = (async () => {
 
 	const stacks = getTechStacksCol(client)
 		.find({})
+		.sort({ priority: 1 })
 		.toArray()
 		.then((result) => result.map(serializeId));
 
