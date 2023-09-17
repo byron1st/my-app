@@ -6,7 +6,7 @@
 
 <div
 	class={classnames(
-		'flex w-16 shrink-0 flex-row items-center justify-center text-slate-800/50 dark:text-slate-100/50',
+		'flex w-16 shrink-0 flex-row items-center justify-center opacity-80 font-light',
 		kind.length >= 5 ? 'text-xs' : 'text-sm'
 	)}
 >

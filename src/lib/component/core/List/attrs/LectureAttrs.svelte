@@ -9,7 +9,7 @@
 	export let lecture: Pick<LectureType, keyof LectureType> & { _id: string };
 </script>
 
-<TextAttr text={lecture.topic} isSubtle />
+<TextAttr text={lecture.topic} />
 
 <DurationAttr from={lecture.from} to={lecture.to} format="YYYY-MM" />
 

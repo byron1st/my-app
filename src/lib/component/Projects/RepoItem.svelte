@@ -13,7 +13,7 @@
 
 <div class="flex flex-row flex-wrap items-center">
 	<a
-		class="mr-2 flex flex-row items-center gap-1 hover:border-slate-500 hover:bg-slate-200 active:border-slate-600 active:bg-slate-300 dark:hover:border-slate-400 dark:hover:bg-slate-700 dark:active:border-slate-300 dark:active:bg-slate-600"
+		class="mr-2 flex flex-row items-center gap-1 hover:border-slate-a8 hover:bg-slate-a4 active:border-slate-a8 active:bg-slate-a5"
 		href={repo.url}
 		target="_blank"
 		rel="noopener noreferrer"

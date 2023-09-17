@@ -1,5 +1,4 @@
 <script lang="ts">
-	import classnames from 'classnames';
 	import dayjs from 'dayjs';
 	import { getDuration } from '$lib/date';
 	import type { ProjectWithSkillRepoSerialized } from '$lib/models/projects';
@@ -39,11 +38,11 @@
 			<List title="기술">
 				{#each project.skills as skill, index}
 					<ListItem length={project.skills.length} {index}>
-						<p class="text-sm text-slate-800/50 dark:text-slate-100/50" slot="content">
+						<p class="text-sm" slot="content">
 							{skill.skill}
 						</p>
 
-						<p class="text-end text-sm text-slate-800/50 dark:text-slate-100/50" slot="leftItem">
+						<p class="text-end text-sm" slot="leftItem">
 							{skill.level}/10
 						</p>
 					</ListItem>
@@ -56,7 +55,7 @@
 						<ListItem length={project.repoInfo.length} {index} href={repo.url} leftIcon={GitHub}>
 							<div class="flex flex-col" slot="content">
 								<p class="text-sm">{repo.name}</p>
-								<p class="text-xs text-slate-800/50 dark:text-slate-100/50">
+								<p class="text-xs opacity-80 font-light">
 									{repo.visibility === 'private' ? '비공개' : '공개'}{repo.language
 										? `, ${repo.language}`
 										: ''}{repo.license ? `, ${repo.license.name}` : ''}, {dayjs(
@@ -75,7 +74,7 @@
 		</div>
 
 		<div class="flex h-full flex-row items-center justify-end" slot="footer" let:close>
-			<Button title="완료" onClick={close} color="primary" />
+			<Button title="완료" onClick={close} />
 		</div>
 	</Modal>
 {/if}

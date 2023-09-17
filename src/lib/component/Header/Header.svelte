@@ -2,12 +2,30 @@
 	import MenuList from '$lib/component/Header/MenuList.svelte';
 	import DropdownMenuList from '$lib/component/Header/DropdownMenuList.svelte';
 	import Logo from '$lib/component/core/Logo.svelte';
+	import { Moon, Sun } from 'lucide-svelte';
+	import { colorTheme } from '$lib/stores/color-theme';
+
+	function toggleColorTheme() {
+		colorTheme.set($colorTheme === 'dark' ? 'light' : 'dark');
+	}
 </script>
 
 <div class="flex h-12 w-full items-center justify-between gap-4 px-4 lg:w-[64rem]">
-	<a href="/" class="flex flex-row items-center gap-1">
-		<Logo />
-	</a>
+	<div class="flex gap-2">
+		<a href="/" class="flex flex-row items-center gap-1">
+			<Logo />
+		</a>
+
+		{#if $colorTheme === 'light'}
+			<div class="cursor-pointer" on:click={toggleColorTheme}>
+				<Sun size={20} />
+			</div>
+		{:else}
+			<div class="cursor-pointer" on:click={toggleColorTheme}>
+				<Moon size={20} />
+			</div>
+		{/if}
+	</div>
 
 	<div class="hidden gap-4 sm:flex">
 		<MenuList />

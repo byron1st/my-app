@@ -18,7 +18,7 @@
 			: undefined;
 </script>
 
-<div class="shrink-0 rounded-lg bg-slate-200 py-1 px-2 text-xs dark:bg-slate-700">
+<div class="shrink-0 rounded-lg bg-slate-a3 py-1 px-2 text-xs">
 	<a
 		class="flex h-full w-full cursor-pointer items-center justify-center gap-1"
 		href={link}

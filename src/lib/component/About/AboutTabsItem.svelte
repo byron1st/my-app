@@ -4,12 +4,13 @@
 	export let title = '';
 	export let current = false;
 	export let href = '';
+	console.log(title, current);
 </script>
 
 <a
 	class={classnames(
-		'flex w-24 cursor-pointer flex-row justify-center rounded-md transition hover:bg-slate-200 dark:hover:bg-slate-700',
-		{ 'bg-slate-200 dark:bg-slate-700': current }
+		'flex w-24 cursor-pointer flex-row justify-center rounded-md transition',
+		current ? 'bg-slate-a5' : 'bg-slate-a2'
 	)}
 	{href}
 >

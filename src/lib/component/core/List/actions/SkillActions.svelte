@@ -6,6 +6,7 @@
 	import type { SkillSerialized } from '$lib/models/skills';
 	import Description from '$lib/component/core/Description/Description.svelte';
 	import MultilineDescription from '$lib/component/core/Description/MultilineDescription.svelte';
+	import { AlertCircle } from 'lucide-svelte';
 
 	export let skill: SkillSerialized;
 
@@ -27,11 +28,9 @@
 	// -1: 과거에 사용해보았으나, 현재는 사용하지 않고 있음
 </script>
 
-<IconButton
-	component={ExclamationCircle}
-	onClick={toggle}
-	ariaLabel={`"More about my ${skill.skill} skill"`}
-/>
+<IconButton onClick={toggle} ariaLabel={`"More about my ${skill.skill} skill"`}>
+	<AlertCircle size={20} />
+</IconButton>
 
 {#if show}
 	<Modal title={skill.skill} onClose={toggle}>
@@ -41,7 +40,7 @@
 		</div>
 
 		<div class="flex h-full flex-row items-center justify-end" slot="footer" let:close>
-			<Button title="완료" onClick={close} color="primary" />
+			<Button title="완료" onClick={close} />
 		</div>
 	</Modal>
 {/if}

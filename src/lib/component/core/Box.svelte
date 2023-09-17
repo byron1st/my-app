@@ -4,10 +4,7 @@
 
 <div
 	id={$$props.id}
-	class={classnames(
-		'rounded-md border border-slate-800/10 bg-slate-100 transition dark:border-slate-100/10 dark:bg-slate-800',
-		$$props.class
-	)}
+	class={classnames('rounded-md border border-slate-a7 bg-slate-a3 transition', $$props.class)}
 >
 	<slot />
 </div>

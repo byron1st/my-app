@@ -59,7 +59,7 @@
 						href={techStack.link}
 						leftIcon={ArrowTopRightOnSquare}
 					>
-						<TextAttr text={techStack.stack} isSubtle slot="attributes" />
+						<TextAttr text={techStack.stack} slot="attributes" />
 					</ListItem>
 				{/each}
 			{:catch error}

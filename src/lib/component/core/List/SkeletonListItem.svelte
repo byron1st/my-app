@@ -12,15 +12,15 @@
 >
 	{#if hasKind}
 		<div class="flex w-16 flex-row items-center justify-center px-2">
-			<div class="h-4 w-full rounded-lg bg-slate-300 dark:bg-slate-600" />
+			<div class="h-4 w-full rounded-lg bg-slate-a9" />
 		</div>
 	{/if}
 
 	<div
 		class={classnames('flex h-full w-full flex-1 flex-row justify-between py-3', {
-			'border-b border-b-slate-800/10 dark:border-b-slate-100/10': !isLast
+			'border-b border-b-slate-a6': !isLast
 		})}
 	>
-		<div class="h-4 w-full rounded-lg bg-slate-300 dark:bg-slate-600" />
+		<div class="h-4 w-full rounded-lg bg-slate-a9" />
 	</div>
 </div>

@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Box from '$lib/component/core/Box.svelte';
 	import DescriptionContainer from '$lib/component/core/Description/DescriptionContainer.svelte';
 
 	export let label: string;
@@ -18,21 +17,15 @@
 </script>
 
 <DescriptionContainer>
-	<p class="text-sm">{label}</p>
+	<p class="text-sm font-bold">{label}</p>
 
-	<div
-		class="whitespace-pre-wrap text-sm text-slate-800/50 line-clamp-6 dark:text-slate-100/50"
-		bind:this={descriptionBox}
-	>
+	<div class="whitespace-pre-wrap text-sm line-clamp-6" bind:this={descriptionBox}>
 		{@html description.replace(/\n/g, '<br/>')}
 	</div>
 
 	{#if isTruncated}
 		<div class="flex w-full flex-row justify-end">
-			<button
-				class="text-end text-xs text-slate-800/50 underline dark:text-slate-100/50"
-				on:click={toggle}
-			>
+			<button class="text-end text-xs underline" on:click={toggle}>
 				{!show ? '더보기' : '접기'}
 			</button>
 		</div>

@@ -23,12 +23,7 @@
 
 <button
 	id={project._id}
-	class={classnames(
-		'flex w-full flex-row justify-between border-b border-b-slate-800/10 p-4 text-start hover:bg-slate-100 active:bg-slate-200 dark:border-b-slate-100/10 dark:hover:bg-slate-800 dark:active:bg-slate-700',
-		{
-			'text-slate-800/50 dark:text-slate-100/50': isStopped
-		}
-	)}
+	class="flex w-full flex-row justify-between border-b border-b-slate-a6 p-4 text-start hover:bg-slate-a4 active:bg-slate-a5"
 	on:click={() => (show = true)}
 >
 	<div class="flex flex-row">

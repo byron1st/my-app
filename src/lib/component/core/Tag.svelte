@@ -2,4 +2,4 @@
 	export let tag: string;
 </script>
 
-<div class="rounded-lg bg-slate-200 py-1 px-1 text-xs dark:bg-slate-700">#{tag}</div>
+<div class="rounded-lg bg-slate-a3 py-1 px-1 text-xs">#{tag}</div>

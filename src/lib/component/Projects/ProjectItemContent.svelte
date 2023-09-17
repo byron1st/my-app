@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { ProjectKind, type ProjectWithSkillRepoSerialized } from '$lib/models/projects';
-	import Link from '$lib/icons/Link.svelte';
-	import RepoItem from '$lib/component/Projects/RepoItem.svelte';
+	// import Link from '$lib/icons/Link.svelte';
+	// import RepoItem from '$lib/component/Projects/RepoItem.svelte';
 	import UserCircle from '$lib/icons/UserCircle.svelte';
 	import Users from '$lib/icons/Users.svelte';
 	import DurationAttr from '$lib/component/core/List/attrs/DurationAttr.svelte';
@@ -14,19 +14,19 @@
 </script>
 
 <div class="flex flex-col">
-	<div class="flex flex-row items-baseline gap-1">
+	<div class="flex flex-row items-baseline gap-1 font-bold">
 		{project.name}
-		{#if project.link}
+		<!-- {#if project.link}
 			<a
 				href={project.link}
 				target="_blank"
 				rel="noopener noreferrer"
 				aria-label="Open a link to the project website"><Link class="h-3 w-3" /></a
 			>
-		{/if}
+		{/if} -->
 	</div>
 
-	<TextAttr text={project.overview} isSubtle />
+	<TextAttr text={project.overview} />
 
 	<DurationAttr from={project.from} to={project.to} format="YYYY-MM-DD" />
 
@@ -43,11 +43,11 @@
 		</div>
 	{/if}
 
-	{#if repos}
+	<!-- {#if repos}
 		{#each repos as repo}
 			<RepoItem {repo} />
 		{/each}
-	{/if}
+	{/if} -->
 
 	<div class="mt-2 flex flex-row flex-wrap gap-1">
 		{#each project.tags as tag}

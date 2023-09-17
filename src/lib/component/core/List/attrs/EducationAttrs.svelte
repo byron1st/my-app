@@ -10,5 +10,5 @@
 <DurationAttr {from} {to} />
 
 {#if note}
-	<TextAttr text={note} isSubtle />
+	<TextAttr text={note} />
 {/if}

@@ -25,11 +25,25 @@
 		<ListItem
 			title="빅픽처랩(주)"
 			href="https://bigpicturelabs.io"
-			length={1}
+			length={2}
 			index={0}
 			leftIcon={ArrowTopRightOnSquare}
 		>
 			<CareerAttrs position="CTO, 풀스텍 개발자" from={new Date('2018-05-01')} slot="attributes" />
+		</ListItem>
+		<ListItem
+			title="네이버"
+			href="https://www.naver.com"
+			length={2}
+			index={1}
+			leftIcon={ArrowTopRightOnSquare}
+		>
+			<CareerAttrs
+				position="인턴"
+				from={new Date('2012-07-01')}
+				to={new Date('2012-08-31')}
+				slot="attributes"
+			/>
 		</ListItem>
 	</List>
 
