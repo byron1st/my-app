@@ -4,11 +4,10 @@
 	import SkillActions from '$lib/component/core/List/actions/SkillActions.svelte';
 	import List from '$lib/component/core/List/List.svelte';
 	import ListItem from '$lib/component/core/List/ListItem.svelte';
-	import ArrowTopRightOnSquare from '$lib/icons/ArrowTopRightOnSquare.svelte';
-	import ChevronRight from '$lib/icons/ChevronRight.svelte';
 	import LoadingError from '$lib/component/LoadingError.svelte';
 	import SkeletonListItems from '$lib/component/core/List/SkeletonListItems.svelte';
 	import type { PageServerData } from './$types';
+	import { ChevronRight, ExternalLink } from 'lucide-svelte';
 
 	export let data: PageServerData;
 </script>
@@ -22,28 +21,18 @@
 
 <div class="flex w-full flex-col gap-6">
 	<List title="경력">
-		<ListItem
-			title="빅픽처랩(주)"
-			href="https://bigpicturelabs.io"
-			length={2}
-			index={0}
-			leftIcon={ArrowTopRightOnSquare}
-		>
+		<ListItem title="빅픽처랩(주)" href="https://bigpicturelabs.io" length={2} index={0}>
 			<CareerAttrs position="CTO, 풀스텍 개발자" from={new Date('2018-05-01')} slot="attributes" />
+			<ExternalLink size={20} slot="leftItem" />
 		</ListItem>
-		<ListItem
-			title="네이버"
-			href="https://www.naver.com"
-			length={2}
-			index={1}
-			leftIcon={ArrowTopRightOnSquare}
-		>
+		<ListItem title="네이버" href="https://www.naver.com" length={2} index={1}>
 			<CareerAttrs
 				position="인턴"
 				from={new Date('2012-07-01')}
 				to={new Date('2012-08-31')}
 				slot="attributes"
 			/>
+			<ExternalLink size={20} slot="leftItem" />
 		</ListItem>
 	</List>
 
@@ -62,7 +51,9 @@
 	</List>
 
 	<List>
-		<ListItem title="프로젝트들" href="/projects" length={1} index={0} leftIcon={ChevronRight} />
+		<ListItem title="프로젝트들" href="/projects" length={1} index={0}>
+			<ChevronRight size={20} slot="leftItem" />
+		</ListItem>
 	</List>
 
 	<List

@@ -2,12 +2,10 @@
 	import classnames from 'classnames';
 	import type { ComponentType } from 'svelte';
 	import ListKind from '$lib/component/core/List/ListKind.svelte';
-	import Icon from '$lib/component/core/Icon.svelte';
 
 	export let kind = '';
 	export let title = '';
 	export let href: string | undefined = undefined;
-	export let leftIcon: ComponentType | undefined = undefined;
 	export let length: number;
 	export let index: number;
 	$: isFirst = index === 0;
@@ -44,9 +42,7 @@
 			</div>
 		{/if}
 
-		{#if leftIcon}
-			<Icon icon={leftIcon} class="shrink-0" />
-		{:else if $$slots.leftItem}
+		{#if $$slots.leftItem}
 			<slot name="leftItem" />
 		{/if}
 	</div>

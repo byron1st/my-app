@@ -1,5 +1,4 @@
 <script lang="ts">
-	import ExclamationCircle from '$lib/icons/ExclamationCircle.svelte';
 	import Button from '$lib/component/core/buttons/Button.svelte';
 	import IconButton from '$lib/component/core/buttons/IconButton.svelte';
 	import Modal from '$lib/component/core/Modal.svelte';

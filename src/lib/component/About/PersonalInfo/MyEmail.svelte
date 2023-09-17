@@ -1,8 +1,6 @@
 <script lang="ts">
-	import AtSymbol from '$lib/icons/AtSymbol.svelte';
-	import Envelope from '$lib/icons/Envelope.svelte';
 	import InfoItem from '$lib/component/About/PersonalInfo/InfoItem.svelte';
-	import Icon from '$lib/component/core/Icon.svelte';
+	import { AtSign, Mail } from 'lucide-svelte';
 
 	export let id = '';
 	export let domain = '';
@@ -11,6 +9,6 @@
 </script>
 
 <InfoItem {href}>
-	<Icon icon={Envelope} class="mr-1" slot="icon" />
-	{id}<Icon icon={AtSymbol} />{domain}
+	<Mail class="mr-1" size={20} slot="icon" />
+	{id}<AtSign size={20} />{domain}
 </InfoItem>

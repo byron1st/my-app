@@ -4,10 +4,10 @@
 	import TextAttr from '$lib/component/core/List/attrs/TextAttr.svelte';
 	import List from '$lib/component/core/List/List.svelte';
 	import ListItem from '$lib/component/core/List/ListItem.svelte';
-	import ArrowTopRightOnSquare from '$lib/icons/ArrowTopRightOnSquare.svelte';
 	import LoadingError from '$lib/component/LoadingError.svelte';
 	import SkeletonListItems from '$lib/component/core/List/SkeletonListItems.svelte';
 	import type { PageServerData } from './$types';
+	import { ExternalLink } from 'lucide-svelte';
 
 	export let data: PageServerData;
 </script>
@@ -52,14 +52,9 @@
 				<SkeletonListItems />
 			{:then stacks}
 				{#each stacks as techStack, index}
-					<ListItem
-						title={techStack.name}
-						length={stacks.length}
-						{index}
-						href={techStack.link}
-						leftIcon={ArrowTopRightOnSquare}
-					>
+					<ListItem title={techStack.name} length={stacks.length} {index} href={techStack.link}>
 						<TextAttr text={techStack.stack} slot="attributes" />
+						<ExternalLink size={20} slot="leftItem" />
 					</ListItem>
 				{/each}
 			{:catch error}

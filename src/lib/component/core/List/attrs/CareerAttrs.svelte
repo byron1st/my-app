@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Briefcase from '$lib/icons/Briefcase.svelte';
 	import DurationAttr from '$lib/component/core/List/attrs/DurationAttr.svelte';
 	import Attrs from '$lib/component/core/List/attrs/Attrs.svelte';
+	import { Briefcase } from 'lucide-svelte';
 
 	export let position: string;
 	export let from: Date;

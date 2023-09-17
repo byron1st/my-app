@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { get } from '$lib/stores/personalinfo';
-	import ChevronRight from '$lib/icons/ChevronRight.svelte';
 	import List from '$lib/component/core/List/List.svelte';
 	import ListItem from '$lib/component/core/List/ListItem.svelte';
 	import Introduction from '$lib/component/Home/Introduction.svelte';
@@ -8,6 +7,7 @@
 	import LoadingError from '$lib/component/LoadingError.svelte';
 	import SkeletonListItems from '$lib/component/core/List/SkeletonListItems.svelte';
 	import type { PageServerData } from './$types';
+	import { ChevronRight } from 'lucide-svelte';
 
 	export let data: PageServerData;
 
@@ -40,9 +40,10 @@
 							: '회사'}
 						length={projects.length}
 						{index}
-						leftIcon={ChevronRight}
 						href={`/projects#${project._id}`}
-					/>
+					>
+						<ChevronRight size={20} slot="leftItem" />
+					</ListItem>
 				{/each}
 			{:catch error}
 				<LoadingError {error} />

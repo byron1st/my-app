@@ -1,5 +1,4 @@
 <script lang="ts">
-	import ArrowTopRightOnSquare from '$lib/icons/ArrowTopRightOnSquare.svelte';
 	import EducationAttrs from '$lib/component/core/List/attrs/EducationAttrs.svelte';
 	import PaperAttrs from '$lib/component/core/List/attrs/PaperAttrs.svelte';
 	import List from '$lib/component/core/List/List.svelte';
@@ -7,6 +6,7 @@
 	import LoadingError from '$lib/component/LoadingError.svelte';
 	import SkeletonListItems from '$lib/component/core/List/SkeletonListItems.svelte';
 	import type { PageServerData } from './$types';
+	import { ExternalLink } from 'lucide-svelte';
 
 	export let data: PageServerData;
 </script>
@@ -21,16 +21,16 @@
 			<SkeletonListItems />
 		{:then educations}
 			{#each educations as { degree, school, from, to, note, link }, index}
-				<ListItem
-					title={school}
-					kind={degree}
-					href={link}
-					length={educations.length}
-					{index}
-					leftIcon={link ? ArrowTopRightOnSquare : undefined}
-				>
-					<EducationAttrs {from} {to} {note} slot="attributes" />
-				</ListItem>
+				{#if link}
+					<ListItem title={school} kind={degree} href={link} length={educations.length} {index}>
+						<EducationAttrs {from} {to} {note} slot="attributes" />
+						<ExternalLink size={20} slot="leftItem" />
+					</ListItem>
+				{:else}
+					<ListItem title={school} kind={degree} href={link} length={educations.length} {index}>
+						<EducationAttrs {from} {to} {note} slot="attributes" />
+					</ListItem>
+				{/if}
 			{/each}
 		{:catch error}
 			<LoadingError {error} />
@@ -54,9 +54,9 @@
 					href={link}
 					length={papers.myPapers.length}
 					{index}
-					leftIcon={ArrowTopRightOnSquare}
 				>
 					<PaperAttrs {authors} {conference} {journal} slot="attributes" />
+					<ExternalLink size={20} slot="leftItem" />
 				</ListItem>
 			{/each}
 		</List>
@@ -69,9 +69,9 @@
 					href={link}
 					length={papers.otherPapers.length}
 					{index}
-					leftIcon={ArrowTopRightOnSquare}
 				>
 					<PaperAttrs {authors} {conference} {journal} slot="attributes" />
+					<ExternalLink size={20} slot="leftItem" />
 				</ListItem>
 			{/each}
 		</List>

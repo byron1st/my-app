@@ -1,9 +1,8 @@
 <script lang="ts">
-	import CalendarDays from '$lib/icons/CalendarDays.svelte';
-	import MapPin from '$lib/icons/MapPin.svelte';
 	import Users from '$lib/icons/Users.svelte';
 	import Attrs from '$lib/component/core/List/attrs/Attrs.svelte';
 	import TextAttr from '$lib/component/core/List/attrs/TextAttr.svelte';
+	import { CalendarDays, MapPin } from 'lucide-svelte';
 
 	export let authors: string[];
 	export let conference: { title: string; location: string; date: string } | undefined = undefined;

@@ -1,4 +1,4 @@
-- [ ] Icon 을 [Lucide](https://lucide.dev/guide/packages/lucide-svelte) 로 변경
+- [x] Icon 을 [Lucide](https://lucide.dev/guide/packages/lucide-svelte) 로 변경
 - [ ] MongoDB 에서 Vercel RDBMS로 변경
 - [ ] Project 페이지 디자인 개편
 - [x] Color 를 Radix UI의 [Color System](https://www.radix-ui.com/colors) 으로 변경

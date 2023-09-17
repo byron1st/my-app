@@ -9,6 +9,7 @@
 	import MultilineDescription from '$lib/component/core/Description/MultilineDescription.svelte';
 	import List from '$lib/component/core/List/List.svelte';
 	import ListItem from '$lib/component/core/List/ListItem.svelte';
+	import Icon from '$lib/component/core/Icon.svelte';
 
 	export let project: ProjectWithSkillRepoSerialized;
 	export let show = false;
@@ -52,7 +53,7 @@
 			{#if project.repoInfo && project.repoInfo.length > 0}
 				<List title="코드저장소">
 					{#each project.repoInfo as repo, index}
-						<ListItem length={project.repoInfo.length} {index} href={repo.url} leftIcon={GitHub}>
+						<ListItem length={project.repoInfo.length} {index} href={repo.url}>
 							<div class="flex flex-col" slot="content">
 								<p class="text-sm">{repo.name}</p>
 								<p class="text-xs opacity-80 font-light">
@@ -63,6 +64,8 @@
 									).format('YYYY-MM-DD')}
 								</p>
 							</div>
+
+							<Icon icon={GitHub} slot="leftItem" />
 						</ListItem>
 					{/each}
 				</List>

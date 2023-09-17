@@ -1,11 +1,9 @@
 <script lang="ts">
 	import type { PersonalInfoType } from '$lib/models/personalinfo';
-	import BuildingOffice from '$lib/icons/BuildingOffice.svelte';
-	import MapPin from '$lib/icons/MapPin.svelte';
 	import InfoItem from '$lib/component/About/PersonalInfo/InfoItem.svelte';
 	import MyEmail from '$lib/component/About/PersonalInfo/MyEmail.svelte';
 	import ExternalLinkButton from '$lib/component/core/buttons/ExternalLinkButton.svelte';
-	import Icon from '$lib/component/core/Icon.svelte';
+	import { Building, MapPin } from 'lucide-svelte';
 
 	export let personalInfo: PersonalInfoType;
 </script>
@@ -17,10 +15,10 @@
 		<div class="text-xl font-bold">안휘 (Hwi Ahn)</div>
 		<MyEmail id={personalInfo.email.id} domain={personalInfo.email.domain} />
 		<InfoItem href={personalInfo.work.link} text={personalInfo.work.name}>
-			<Icon icon={BuildingOffice} class="mr-1" slot="icon" />
+			<Building class="mr-1" size={20} slot="icon" />
 		</InfoItem>
 		<InfoItem href={personalInfo.home.link} text={personalInfo.home.name}>
-			<Icon icon={MapPin} class="mr-1" slot="icon" />
+			<MapPin class="mr-1" size={20} slot="icon" />
 		</InfoItem>
 
 		<div class="flex flex-row gap-2 overflow-x-auto pb-2">

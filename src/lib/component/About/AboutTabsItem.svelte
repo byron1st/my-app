@@ -4,7 +4,6 @@
 	export let title = '';
 	export let current = false;
 	export let href = '';
-	console.log(title, current);
 </script>
 
 <a

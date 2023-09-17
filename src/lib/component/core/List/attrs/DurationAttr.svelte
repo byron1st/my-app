@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Attrs from '$lib/component/core/List/attrs/Attrs.svelte';
 	import { getDuration } from '$lib/date';
-	import CalendarDays from '$lib/icons/CalendarDays.svelte';
+	import { CalendarDays } from 'lucide-svelte';
 
 	export let from: Date;
 	export let to: Date | undefined = undefined;
