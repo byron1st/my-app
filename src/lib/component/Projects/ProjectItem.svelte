@@ -5,18 +5,15 @@
 		type ProjectWithSkillRepoSerialized
 	} from '$lib/models/projects';
 	import ProjectItemContent from '$lib/component/Projects/ProjectItemContent.svelte';
-	import ProjectItemModal from '$lib/component/Projects/ProjectItemModal.svelte';
 	import { Building, GraduationCap, Home, Pause, Play, Square } from 'lucide-svelte';
 
 	export let project: ProjectWithSkillRepoSerialized;
-
-	let show = false;
 </script>
 
-<button
+<a
 	id={project._id}
 	class="flex w-full flex-row justify-between border-b border-b-slate-a6 p-4 text-start hover:bg-slate-a4 active:bg-slate-a5"
-	on:click={() => (show = true)}
+	href={`/projects/${project._id}`}
 >
 	<div class="flex flex-row">
 		<div class="flex w-10 shrink-0 flex-row items-center">
@@ -41,6 +38,4 @@
 			<GraduationCap />
 		{/if}
 	</div>
-</button>
-
-<ProjectItemModal {project} {show} onClose={() => (show = false)} />
+</a>

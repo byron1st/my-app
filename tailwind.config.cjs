@@ -7,6 +7,8 @@ module.exports = {
 				slate: generateScale('slate'),
 				red: generateScale('red'),
 				indigo: generateScale('indigo'),
+				jade: generateScale('jade'),
+				amber: generateScale('amber'),
 				gray: generateScale('gray')
 			}
 		}

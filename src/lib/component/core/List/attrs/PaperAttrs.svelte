@@ -1,8 +1,7 @@
 <script lang="ts">
-	import Users from '$lib/icons/Users.svelte';
+	import { CalendarDays, MapPin, Users } from 'lucide-svelte';
 	import Attrs from '$lib/component/core/List/attrs/Attrs.svelte';
 	import TextAttr from '$lib/component/core/List/attrs/TextAttr.svelte';
-	import { CalendarDays, MapPin } from 'lucide-svelte';
 
 	export let authors: string[];
 	export let conference: { title: string; location: string; date: string } | undefined = undefined;
@@ -18,7 +17,7 @@
 	$: authorsText = authors
 		.map((author) => {
 			if (author === 'Hwi Ahn' || author === '안휘') {
-				return `<span class="font-bold text-blue-600 dark:text-blue-300">${author}</span>`;
+				return `<span class="font-bold text-indigo-a11">${author}</span>`;
 			}
 			return author;
 		})

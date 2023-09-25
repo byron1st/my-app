@@ -75,6 +75,34 @@ export async function readProjectsWithSkillsRepos(client: MongoClient) {
 		.toArray();
 }
 
+export async function readProjectWithSkillsRepos(client: MongoClient, projectID: ObjectId) {
+	const projects = await getProjectsCol(client)
+		.aggregate<ProjectWithSkillRepoWithId>([
+			{ $match: { _id: projectID } },
+			{
+				$lookup: {
+					from: 'skills',
+					localField: 'skillIds',
+					foreignField: '_id',
+					pipeline: [{ $project: { skill: 1, level: 1 } }],
+					as: 'skills'
+				}
+			},
+			{
+				$lookup: {
+					from: 'repositories',
+					localField: 'repos',
+					foreignField: 'name',
+					pipeline: [{ $project: { _id: 0 } }],
+					as: 'repoInfo'
+				}
+			}
+		])
+		.toArray();
+
+	return projects.length === 0 ? null : projects[0];
+}
+
 type ProjectedSkill = { skill: string; level: number };
 
 export type ProjectWithSkillSerialized = Omit<ProjectType, 'skillIds'> & {
