@@ -1,11 +1,11 @@
-import { readProjectsWithSkillsRepos, serializeProjectWithSkillRepo } from '$lib/models/projects';
+import { readProjectsWithSkills, serializeProjectWithSkillRepo } from '$lib/models/projects';
 import clientPromise from '$lib/server/db';
 import type { PageServerLoad } from './$types';
 
 export const load = (async () => {
 	const client = await clientPromise;
 
-	const projects = readProjectsWithSkillsRepos(client).then((result) =>
+	const projects = readProjectsWithSkills(client).then((result) =>
 		result.map(serializeProjectWithSkillRepo)
 	);
 

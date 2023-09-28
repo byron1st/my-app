@@ -3,10 +3,10 @@
 	import ProjectRepoItem from '$lib/component/Project/ProjectRepoItem.svelte';
 	import ProjectStatusBadge from '$lib/component/Project/ProjectStatusBadge.svelte';
 	import { getDuration } from '$lib/date';
-	import { ProjectKind, type ProjectWithSkillRepoSerialized } from '$lib/models/projects';
+	import { ProjectKind, type ProjectWithSkillSerialized } from '$lib/models/projects';
 	import { Play } from 'lucide-svelte';
 
-	export let project: ProjectWithSkillRepoSerialized;
+	export let project: ProjectWithSkillSerialized;
 </script>
 
 <div class="flex flex-col p-2 gap-8">

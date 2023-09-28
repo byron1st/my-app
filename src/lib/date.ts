@@ -1,8 +1,10 @@
 import dayjs from 'dayjs';
 
-export function getDuration(from: Date, to?: Date, format?: string): string {
+export function getDuration(from: Date, to: Date, format?: string): string {
 	const fromStr = dayjs(from).format(format ?? 'YYYY-MM-DD');
-	const toStr = to ? dayjs(to).format(format ?? 'YYYY-MM-DD') : 'Present';
+
+	const dayjsTo = dayjs(to);
+	const toStr = dayjsTo.isBefore(new Date()) ? dayjsTo.format(format ?? 'YYYY-MM-DD') : 'Present';
 
 	return fromStr === toStr ? fromStr : `${fromStr} ~ ${toStr}`;
 }

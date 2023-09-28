@@ -2,12 +2,12 @@
 	import {
 		ProjectKind,
 		ProjectStatus,
-		type ProjectWithSkillRepoSerialized
+		type ProjectWithSkillSerialized
 	} from '$lib/models/projects';
 	import ProjectItemContent from '$lib/component/Projects/ProjectItemContent.svelte';
 	import { Building, GraduationCap, Home, Pause, Play, Square } from 'lucide-svelte';
 
-	export let project: ProjectWithSkillRepoSerialized;
+	export let project: ProjectWithSkillSerialized;
 </script>
 
 <a
