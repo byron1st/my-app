@@ -23,7 +23,7 @@
 			<ProjectContent content={data.content} />
 		{:else}
 			<section class="mb-6">
-				<p>{data.project.description}</p>
+				<p>{@html data.project.description.replace(/\n/g, '<br/>')}</p>
 			</section>
 		{/if}
 	</div>

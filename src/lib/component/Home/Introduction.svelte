@@ -5,5 +5,5 @@
 </script>
 
 <Box class="flex flex-col px-4 py-2">
-	{@html introduction.replace(/\n/g, '<br/>')}
+	{@html introduction}
 </Box>
