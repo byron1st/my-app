@@ -16,15 +16,13 @@
 			<Logo />
 		</a>
 
-		{#if $colorTheme === 'light'}
-			<div class="cursor-pointer" on:click={toggleColorTheme}>
+		<div class="cursor-pointer" on:click={toggleColorTheme}>
+			{#if $colorTheme === 'light'}
 				<Sun size={20} />
-			</div>
-		{:else}
-			<div class="cursor-pointer" on:click={toggleColorTheme}>
+			{:else}
 				<Moon size={20} />
-			</div>
-		{/if}
+			{/if}
+		</div>
 	</div>
 
 	<div class="hidden gap-4 sm:flex">

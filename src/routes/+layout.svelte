@@ -1,13 +1,14 @@
 <script lang="ts">
-	import { inject } from '@vercel/analytics';
-	import { browser, dev } from '$app/environment';
-	import Header from '$lib/component/Header/Header.svelte';
-	import { set } from '$lib/stores/personalinfo';
-	import type { LayoutData } from './$types';
-	import '../app.css';
-	import { colorTheme } from '$lib/stores/color-theme';
 	import { onMount } from 'svelte';
 	import classNames from 'classnames';
+	import { inject } from '@vercel/analytics';
+	import { dev } from '$app/environment';
+	import Header from '$lib/component/Header/Header.svelte';
+	import { set } from '$lib/stores/personalinfo';
+	import Footer from '$lib/component/Footer/Footer.svelte';
+	import { colorTheme } from '$lib/stores/color-theme';
+	import type { LayoutData } from './$types';
+	import '../app.css';
 
 	export let data: LayoutData;
 
@@ -40,7 +41,6 @@
 		class={classNames(
 			'flex h-full min-h-screen w-full flex-col items-center bg-slate-a1 text-slate-a11',
 			{ dark: $colorTheme === 'dark' }
-			// $colorTheme === undefined ? 'opacity-0' : 'opacity-100'
 		)}
 	>
 		<Header />
@@ -48,5 +48,7 @@
 		<main class="h-full w-full px-4 lg:w-[64rem]">
 			<slot />
 		</main>
+
+		<Footer />
 	</div>
 {/if}
