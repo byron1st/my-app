@@ -22,12 +22,9 @@
 		{#if data.content !== null}
 			<ProjectContent content={data.content} />
 		{:else}
-			<div class="h-full flex flex-col justify-center items-center">
-				<p class="text-xs font-light text-gray-a11">
-					제가 아직 해당 프로젝트에 대한 상세 내역을 작성하지 못했습니다.
-				</p>
-				<p class="text-xs font-light text-gray-a11">조금만 기다려주세요!</p>
-			</div>
+			<section class="mb-6">
+				<p>{data.project.description}</p>
+			</section>
 		{/if}
 	</div>
 </div>
