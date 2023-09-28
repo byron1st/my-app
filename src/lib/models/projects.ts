@@ -1,3 +1,4 @@
+import type { RepositoryType } from '$lib/models/repositories';
 import type { MongoClient, ObjectId, WithId } from 'mongodb';
 
 const projectsCol = 'projects';
@@ -68,7 +69,7 @@ export async function readProjectsWithSkills(client: MongoClient) {
 
 export async function readProjectWithSkillsRepos(client: MongoClient, projectID: ObjectId) {
 	const projects = await getProjectsCol(client)
-		.aggregate<ProjectWithSkillWithId>([
+		.aggregate<ProjectWithSkillRepoWithId>([
 			{ $match: { _id: projectID } },
 			{
 				$lookup: {
@@ -106,9 +107,28 @@ export type ProjectWithSkillWithId = WithId<ProjectType> & {
 	skills: WithId<ProjectedSkill>[];
 };
 
-export function serializeProjectWithSkillRepo(
+export function serializeProjectWithSkill(
 	project: ProjectWithSkillWithId
 ): ProjectWithSkillSerialized {
+	return {
+		...project,
+		_id: project._id.toString(),
+		skillIds: project.skillIds.map((id) => id.toString()),
+		skills: project.skills.map((skill) => ({ ...skill, _id: skill._id.toString() }))
+	};
+}
+
+export type ProjectWithSkillRepoWithId = ProjectWithSkillWithId & {
+	repoInfo: RepositoryType[];
+};
+
+export type ProjectWithSkillRepoSerialized = ProjectWithSkillSerialized & {
+	repoInfo: RepositoryType[];
+};
+
+export function serializeProjectWithSkillRepo(
+	project: ProjectWithSkillRepoWithId
+): ProjectWithSkillRepoSerialized {
 	return {
 		...project,
 		_id: project._id.toString(),

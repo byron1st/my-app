@@ -2,11 +2,11 @@
 	import ProjectInfoItem from '$lib/component/Project/ProjectInfoItem.svelte';
 	import ProjectRepoItem from '$lib/component/Project/ProjectRepoItem.svelte';
 	import ProjectStatusBadge from '$lib/component/Project/ProjectStatusBadge.svelte';
+	import Tag from '$lib/component/core/Tag.svelte';
 	import { getDuration } from '$lib/date';
-	import { ProjectKind, type ProjectWithSkillSerialized } from '$lib/models/projects';
-	import { Play } from 'lucide-svelte';
+	import { ProjectKind, type ProjectWithSkillRepoSerialized } from '$lib/models/projects';
 
-	export let project: ProjectWithSkillSerialized;
+	export let project: ProjectWithSkillRepoSerialized;
 </script>
 
 <div class="flex flex-col p-2 gap-8">
@@ -14,7 +14,15 @@
 		<ProjectStatusBadge status={project.status} />
 		<h1 class="font-black text-4xl">{project.name}</h1>
 	</div>
-	<p class="font-light">{project.overview}</p>
+
+	<div>
+		<p class="font-light">{project.overview}</p>
+		<div class="mt-2 flex flex-row flex-wrap gap-1">
+			{#each project.tags as tag}
+				<Tag {tag} />
+			{/each}
+		</div>
+	</div>
 
 	<div class="flex flex-col">
 		<ProjectInfoItem
