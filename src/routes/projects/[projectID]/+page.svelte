@@ -1,5 +1,4 @@
 <script lang="ts">
-	import ProjectContent from '$lib/component/Project/ProjectContent.svelte';
 	import ProjectInfoPanel from '$lib/component/Project/ProjectInfoPanel.svelte';
 	import type { PageData } from './$types';
 
@@ -19,12 +18,8 @@
 	</div>
 
 	<div class="flex flex-col w-full">
-		{#if data.content !== null}
-			<ProjectContent content={data.content} />
-		{:else}
-			<section class="mb-6">
-				<p>{@html data.project.description.replace(/\n/g, '<br/>')}</p>
-			</section>
-		{/if}
+		<section class="mb-6">
+			<p>{@html data.project.description.replace(/\n/g, '<br/>')}</p>
+		</section>
 	</div>
 </div>

@@ -4,13 +4,13 @@
 	export let description: string | undefined = undefined;
 </script>
 
-<div class="flex flex-row justify-between border-t border-t-slate-a6 items-center h-12">
-	<div class="flex flex-col">
+<div class="flex flex-col w-full border-t border-t-slate-a6 h-12 justify-center">
+	<div class="flex flex-row justify-between w-full items-center">
 		<p class="text-sm font-bold">{label}</p>
-		{#if description}
-			<p class="text-xs font-light opacity-80">{description}</p>
-		{/if}
+		<p class="text-sm">{value}</p>
 	</div>
 
-	<p class="text-sm">{value}</p>
+	{#if description}
+		<p class="text-xs font-light opacity-80">{description}</p>
+	{/if}
 </div>
