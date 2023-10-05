@@ -1,6 +1,5 @@
 <script lang="ts">
 	import classnames from 'classnames';
-	import type { ComponentType } from 'svelte';
 	import ListKind from '$lib/component/core/List/ListKind.svelte';
 
 	export let kind = '';

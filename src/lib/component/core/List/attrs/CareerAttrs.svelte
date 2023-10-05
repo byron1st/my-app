@@ -6,7 +6,7 @@
 
 	export let position: string;
 	export let from: Date;
-	export let to: Date | undefined = undefined;
+	export let to: Date;
 	export let overview: string;
 </script>
 

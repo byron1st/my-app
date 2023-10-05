@@ -25,6 +25,7 @@
 			<CareerAttrs
 				position="CTO, 풀스텍 개발자"
 				from={new Date('2018-05-01')}
+				to={new Date('2042-01-01')}
 				overview="블록체인 기반 서비스 및 시스템 설계, 개발 및 운영"
 				slot="attributes"
 			/>
